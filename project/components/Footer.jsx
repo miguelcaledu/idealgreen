@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { asset } from '@/lib/basePath';
 
 const ROUTES = [
   { label: 'Lisbon–Porto · €370', href: '/transfers' },
@@ -24,7 +25,7 @@ export default function Footer() {
       <div className="ig-footer-grid" style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/logo-wordmark-white.png" alt="Idealgreen" style={{ height: 22, marginBottom: 14, display: 'block' }} />
+          <img src={asset('/assets/logo-wordmark-white.png')} alt="Idealgreen" style={{ height: 22, marginBottom: 14, display: 'block' }} />
           <p style={{ font: 'var(--text-body-sm)', color: 'var(--stone-300)', maxWidth: 260, margin: '0 0 16px' }}>
             The private, comfortable and responsible way to discover Portugal.
           </p>

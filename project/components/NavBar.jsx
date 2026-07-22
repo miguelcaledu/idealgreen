@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Button from './ui/Button';
+import { asset } from '@/lib/basePath';
 
 const SERVICES = [
   { href: '/transfers', label: 'Airport & Private Transfers' },
@@ -57,7 +58,7 @@ export default function NavBar() {
       >
         <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/logo-wordmark-white.png" alt="Idealgreen" style={{ height: 26, display: 'block' }} />
+          <img src={asset('/assets/logo-wordmark-white.png')} alt="Idealgreen" style={{ height: 26, display: 'block' }} />
         </Link>
         <button
           className="ig-nav-toggle"

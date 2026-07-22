@@ -7,6 +7,7 @@ import Testimonials from '@/components/home/Testimonials';
 import RouteLines from '@/components/home/RouteLines';
 import FloatingContactPulse from '@/components/home/FloatingContactPulse';
 import ElectricFleetIndicator from '@/components/ui/ElectricFleetIndicator';
+import { asset } from '@/lib/basePath';
 
 const HOTELS = ['Hotel da Baixa', 'Wine & Books Lisboa Hotel', 'Blue Liberdade Hotel', 'Onyria Quinta da Marinha Golf', 'The Yeatman'];
 
@@ -18,7 +19,7 @@ export default function HomePage() {
       <section id="ig-hero" style={{ position: 'relative', minHeight: 560, height: '80vh', maxHeight: 720, display: 'flex', alignItems: 'center' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/assets/landscape-cliff-alt.jpg"
+          src={asset('/assets/landscape-cliff-alt.jpg')}
           alt="Portuguese Atlantic coast at golden hour"
           style={{
             position: 'absolute',
@@ -66,9 +67,9 @@ export default function HomePage() {
           <h2 style={{ font: 'var(--text-h2)', color: '#fff', margin: '0 0 48px', textAlign: 'center' }}>Sit back. You&apos;re expected.</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 24 }}>
             {[
-              { image: '/assets/tesla-airport-night.jpg', alt: 'Driver waiting at arrivals', title: 'Met by name', body: 'Your driver is at arrivals before you are.' },
-              { image: '/assets/fleet-vans-pines.jpg', alt: 'Mercedes V-Class interior room', title: 'Room to relax', body: 'Space for the whole family — child seats on request.' },
-              { image: '/assets/driver-profile.jpg', alt: 'Jorge, driver and founder', title: 'A local up front', body: 'Ask where to eat. Jorge knows.' },
+              { image: asset('/assets/tesla-airport-night.jpg'), alt: 'Driver waiting at arrivals', title: 'Met by name', body: 'Your driver is at arrivals before you are.' },
+              { image: asset('/assets/fleet-vans-pines.jpg'), alt: 'Mercedes V-Class interior room', title: 'Room to relax', body: 'Space for the whole family — child seats on request.' },
+              { image: asset('/assets/driver-profile.jpg'), alt: 'Jorge, driver and founder', title: 'A local up front', body: 'Ask where to eat. Jorge knows.' },
             ].map((card, i) => (
               <div
                 key={card.title}
@@ -118,13 +119,13 @@ export default function HomePage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/fleet-tesla-charging.jpg"
+            src={asset('/assets/fleet-tesla-charging.jpg')}
             alt="Tesla Model Y charging at a hotel forecourt"
             style={{ width: '100%', height: 220, objectFit: 'cover', display: 'block', filter: 'saturate(1.08) contrast(1.05)' }}
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/classic-mercedes-ponton-wedding-front.jpg"
+            src={asset('/assets/classic-mercedes-ponton-wedding-front.jpg')}
             alt="Classic Mercedes-Benz"
             style={{ width: '100%', height: 220, objectFit: 'cover', display: 'block', filter: 'saturate(1.08) contrast(1.05)' }}
           />
@@ -135,7 +136,7 @@ export default function HomePage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: 40, alignItems: 'center' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/driver-profile.jpg"
+            src={asset('/assets/driver-profile.jpg')}
             alt="Jorge, founder and driver"
             style={{ width: '100%', height: 260, objectFit: 'cover', display: 'block', filter: 'saturate(1.08) contrast(1.05)' }}
           />

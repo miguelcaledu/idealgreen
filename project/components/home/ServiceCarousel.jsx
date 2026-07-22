@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
+import { asset } from '@/lib/basePath';
 
 const SERVICES = [
   {
@@ -10,7 +11,7 @@ const SERVICES = [
     kicker: 'Airport Transfers',
     headline: 'Smooth landings, every time.',
     body: 'Your driver tracks your flight and waits with your name — delay or not.',
-    image: '/assets/fleet-tesla-hotel-day.jpg',
+    image: asset('/assets/fleet-tesla-hotel-day.jpg'),
     alt: 'Tesla Model Y transfer',
   },
   {
@@ -18,7 +19,7 @@ const SERVICES = [
     kicker: 'Private Tours',
     headline: 'Portugal, at your pace.',
     body: "Stay longer where you're happy. Skip what doesn't interest you.",
-    image: '/assets/tesla-sintra-pena-palace.jpg',
+    image: asset('/assets/tesla-sintra-pena-palace.jpg'),
     alt: 'Private tour to Sintra',
   },
   {
@@ -26,7 +27,7 @@ const SERVICES = [
     kicker: 'Business Transfers',
     headline: 'Arrive ready.',
     body: 'Quiet cabin, punctual pickups, monthly invoicing.',
-    image: '/assets/fleet-tesla-charging.jpg',
+    image: asset('/assets/fleet-tesla-charging.jpg'),
     alt: 'Business transfer fleet',
   },
   {
@@ -34,7 +35,7 @@ const SERVICES = [
     kicker: 'Classic Cars',
     headline: 'Timeless arrivals.',
     body: 'A classic Mercedes, decorated for your day.',
-    image: '/assets/classic-mercedes-ponton-wedding-front.jpg',
+    image: asset('/assets/classic-mercedes-ponton-wedding-front.jpg'),
     alt: 'Classic Mercedes for weddings',
   },
   {
@@ -42,7 +43,7 @@ const SERVICES = [
     kicker: 'Tailor-Made Journeys',
     headline: 'Built around you.',
     body: 'Tell us the shape of your trip. We plan the roads, the stops, and the pace.',
-    image: '/assets/guests-couple-guide.jpg',
+    image: asset('/assets/guests-couple-guide.jpg'),
     alt: 'Private guide with guests',
   },
 ];
