@@ -12,7 +12,7 @@ const SERVICES = [
   { href: '/classic-cars', label: 'Classic Cars & Events' },
 ];
 
-export default function NavBar() {
+export default function NavBar({ dark = false, activePage = null, bookingDisabled = false }) {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -37,7 +37,7 @@ export default function NavBar() {
         left: 0,
         right: 0,
         zIndex: 40,
-        background: scrolled ? 'rgba(14,21,18,0.88)' : 'transparent',
+        background: scrolled ? 'rgba(14,21,18,0.92)' : dark ? 'rgba(14,21,18,0.35)' : 'transparent',
         backdropFilter: scrolled ? 'blur(10px)' : 'none',
         transition: 'background 300ms ease',
         borderBottom: `1px solid ${scrolled ? 'rgba(255,255,255,0.08)' : 'transparent'}`,
@@ -86,7 +86,15 @@ export default function NavBar() {
             if (e.target.closest('a')) setMobileOpen(false);
           }}
         >
-          <Link href="/" className="ig-nav-link" style={{ font: '500 15px var(--font-body)', color: 'var(--stone-100)', textDecoration: 'none' }}>
+          <Link
+            href="/"
+            className="ig-nav-link"
+            style={{
+              font: activePage === 'home' ? '600 15px var(--font-body)' : '500 15px var(--font-body)',
+              color: activePage === 'home' ? 'var(--green-300)' : 'var(--stone-100)',
+              textDecoration: 'none',
+            }}
+          >
             Home
           </Link>
           <div style={{ position: 'relative' }}>
@@ -144,10 +152,26 @@ export default function NavBar() {
               ))}
             </div>
           </div>
-          <Link href="/corporate" className="ig-nav-link" style={{ font: '500 15px var(--font-body)', color: 'var(--stone-100)', textDecoration: 'none' }}>
+          <Link
+            href="/corporate"
+            className="ig-nav-link"
+            style={{
+              font: activePage === 'corporate' ? '600 15px var(--font-body)' : '500 15px var(--font-body)',
+              color: activePage === 'corporate' ? 'var(--green-300)' : 'var(--stone-100)',
+              textDecoration: 'none',
+            }}
+          >
             For Business
           </Link>
-          <Link href="/faq" className="ig-nav-link" style={{ font: '500 15px var(--font-body)', color: 'var(--stone-100)', textDecoration: 'none' }}>
+          <Link
+            href="/faq"
+            className="ig-nav-link"
+            style={{
+              font: activePage === 'faq' ? '600 15px var(--font-body)' : '500 15px var(--font-body)',
+              color: activePage === 'faq' ? 'var(--green-300)' : 'var(--stone-100)',
+              textDecoration: 'none',
+            }}
+          >
             FAQ
           </Link>
           <Link
@@ -167,11 +191,17 @@ export default function NavBar() {
             PT
           </Link>
         </nav>
-        <Link href="/contact" style={{ textDecoration: 'none' }}>
-          <Button variant="primary" size="md">
+        {bookingDisabled ? (
+          <Button variant="ghost" size="md" disabled style={{ color: '#fff' }}>
             Book now
           </Button>
-        </Link>
+        ) : (
+          <Link href="/contact" style={{ textDecoration: 'none' }}>
+            <Button variant="primary" size="md">
+              Book now
+            </Button>
+          </Link>
+        )}
       </div>
     </header>
   );

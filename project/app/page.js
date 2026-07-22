@@ -14,7 +14,7 @@ const HOTELS = ['Hotel da Baixa', 'Wine & Books Lisboa Hotel', 'Blue Liberdade H
 export default function HomePage() {
   return (
     <div style={{ fontFamily: 'var(--font-body)', background: 'var(--bg-page)', color: 'var(--text-primary)', overflowX: 'hidden' }}>
-      <NavBar />
+      <NavBar activePage="home" />
 
       <section id="ig-hero" style={{ position: 'relative', minHeight: 560, height: '80vh', maxHeight: 720, display: 'flex', alignItems: 'center' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}

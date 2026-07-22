@@ -141,6 +141,19 @@ a:hover {
   font-size: clamp(2.25rem, 7vw, 4rem);
 }
 
+.ig-page-heading {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+}
+
+@media (max-width: 760px) {
+  .ig-about-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .ig-contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* Responsive: booking widget */
 .ig-booking-grid {
   display: grid;
