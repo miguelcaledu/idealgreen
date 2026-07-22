@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/colors.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/typography.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/base.css">
+</helmet>
+
+<div style="position:relative;display:flex;flex-direction:column;gap:6px;font-family:var(--font-body);">
+  <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--text-muted);">{{ fieldLabel }}</span>
+  <button onClick="{{ toggleOpen }}" type="button" style="display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid {{ fieldBorder }};padding:12px 14px;background:#fff;font:var(--text-body);color:{{ fieldColor }};cursor:pointer;text-align:left;">
+    <span>{{ displayText }}</span>
+    <span style="font-size:15px;color:var(--green-700);">▦</span>
+  </button>
+
+  <div style="position:absolute;top:100%;left:0;margin-top:6px;background:#fff;border:1px solid var(--border-subtle);box-shadow:var(--shadow-lg);z-index:70;width:308px;max-width:90vw;opacity:{{ popOpacity }};transform:{{ popTransform }};pointer-events:{{ popPointer }};transition:opacity 180ms ease,transform 180ms ease;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--border-subtle);">
+      <button onClick="{{ prevMonth }}" type="button" style="background:none;border:none;font-size:18px;color:var(--green-700);cursor:pointer;padding:2px 8px;">‹</button>
+      <div style="font:500 19px var(--font-display);color:var(--text-primary);">{{ monthLabel }}</div>
+      <button onClick="{{ nextMonth }}" type="button" style="background:none;border:none;font-size:18px;color:var(--green-700);cursor:pointer;padding:2px 8px;">›</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:10px 12px 4px;">
+      <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="7">
+        <div style="text-align:center;font:var(--text-caption);color:var(--text-muted);padding:4px 0;">{{ w }}</div>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:0 12px 10px;">
+      <sc-for list="{{ cells }}" as="c" hint-placeholder-count="42">
+        <button onClick="{{ c.onClick }}" type="button" disabled="{{ c.disabled }}" style="height:34px;border:none;cursor:{{ c.cursor }};background:{{ c.bg }};color:{{ c.color }};font:{{ c.font }};border-radius:0;">{{ c.label }}</button>
+      </sc-for>
+    </div>
+    <div style="border-top:1px solid var(--border-subtle);padding:12px 16px;">
+      <div style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">{{ timeLabel }}</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;max-height:120px;overflow-y:auto;">
+        <sc-for list="{{ timeChips }}" as="t" hint-placeholder-count="12">
+          <button onClick="{{ t.onClick }}" type="button" style="padding:8px 0;border:1.5px solid {{ t.border }};background:{{ t.bg }};color:{{ t.color }};font:600 13px var(--font-body);cursor:pointer;">{{ t.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="padding:12px 16px;border-top:1px solid var(--border-subtle);display:flex;justify-content:flex-end;">
+      <button onClick="{{ confirm }}" type="button" style="background:var(--green-700);color:#fff;border:none;padding:10px 22px;font:var(--text-button);letter-spacing:var(--tracking-button);cursor:pointer;">{{ doneLabel }}</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:360,&quot;height&quot;:560},&quot;label&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Date &amp; time&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;pt&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;'en' | 'pt'&quot;}}">
+class Component extends DCLogic {
+  state = { open: false, viewYear: new Date().getFullYear(), viewMonth: new Date().getMonth(), selDay: null, selMonth: null, selYear: null, selTime: null };
+
+  renderVals() {
+    const pt = (this.props.lang ?? 'en') === 'pt';
+    const months = pt ? ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']
+                      : ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const weekdays = pt ? ['S','T','Q','Q','S','S','D'] : ['M','T','W','T','F','S','S'];
+    const { viewYear, viewMonth, selDay, selMonth, selYear, selTime, open } = this.state;
+    const today = new Date();
+    const firstDow = (new Date(viewYear, viewMonth, 1).getDay() + 6) % 7; // Monday-first
+    const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+    const cells = [];
+    for (let i = 0; i < firstDow; i++) cells.push({ label: '', disabled: true, cursor: 'default', bg: 'transparent', color: 'transparent', font: 'var(--text-body-sm)', onClick: () => {} });
+    for (let d = 1; d <= daysInMonth; d++) {
+      const isPast = new Date(viewYear, viewMonth, d, 23, 59) < today;
+      const isSel = selDay === d && selMonth === viewMonth && selYear === viewYear;
+      const isToday = d === today.getDate() && viewMonth === today.getMonth() && viewYear === today.getFullYear();
+      cells.push({
+        label: String(d),
+        disabled: isPast,
+        cursor: isPast ? 'not-allowed' : 'pointer',
+        bg: isSel ? 'var(--green-700)' : 'transparent',
+        color: isPast ? 'var(--stone-300)' : (isSel ? '#fff' : (isToday ? 'var(--green-700)' : 'var(--text-primary)')),
+        font: (isSel || isToday) ? '600 14px var(--font-body)' : '400 14px var(--font-body)',
+        onClick: () => this.setState({ selDay: d, selMonth: viewMonth, selYear: viewYear })
+      });
+    }
+    const times = [];
+    for (let h = 0; h <= 23; h++) { times.push(`${String(h).padStart(2,'0')}:00`); times.push(`${String(h).padStart(2,'0')}:30`); }
+    const hasSel = selDay !== null;
+    const display = hasSel
+      ? `${String(selDay).padStart(2,'0')} ${months[selMonth].slice(0,3)} ${selYear}${selTime ? ' · ' + selTime : ''}`
+      : (pt ? 'Escolha data e hora' : 'Pick a date and time');
+    return {
+      fieldLabel: this.props.label ?? (pt ? 'Data e hora' : 'Date & time'),
+      timeLabel: pt ? 'Hora' : 'Time',
+      doneLabel: pt ? 'Confirmar' : 'Done',
+      displayText: display,
+      fieldColor: hasSel ? 'var(--text-primary)' : 'var(--text-muted)',
+      fieldBorder: open ? 'var(--green-600)' : 'var(--border-default)',
+      toggleOpen: () => this.setState(s => ({ open: !s.open })),
+      popOpacity: open ? 1 : 0,
+      popTransform: open ? 'translateY(0)' : 'translateY(-8px)',
+      popPointer: open ? 'auto' : 'none',
+      monthLabel: `${months[viewMonth]} ${viewYear}`,
+      prevMonth: () => this.setState(s => { const m = s.viewMonth - 1; return m < 0 ? { viewMonth: 11, viewYear: s.viewYear - 1 } : { viewMonth: m }; }),
+      nextMonth: () => this.setState(s => { const m = s.viewMonth + 1; return m > 11 ? { viewMonth: 0, viewYear: s.viewYear + 1 } : { viewMonth: m }; }),
+      weekdays,
+      cells,
+      timeChips: times.map(t => ({
+        label: t,
+        border: selTime === t ? 'var(--green-700)' : 'var(--border-default)',
+        bg: selTime === t ? 'var(--green-700)' : '#fff',
+        color: selTime === t ? '#fff' : 'var(--text-primary)',
+        onClick: () => this.setState({ selTime: t })
+      })),
+      confirm: () => this.setState({ open: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

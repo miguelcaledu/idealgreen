@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Corporate Mobility in Portugal | Idealgreen</title>
+<meta name="description" content="Private corporate transport in Lisbon and Portugal — punctual, discreet, invoiced. Electric premium fleet for companies, embassies, law firms and hotels.">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/colors.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/typography.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/base.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/styles.css">
+<script src="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--green-900);}
+  a{color:var(--text-link);}
+  a:hover{color:var(--text-link-hover);}
+</style>
+</helmet>
+
+<div style="font-family:var(--font-body);background:var(--green-900);color:var(--stone-100);overflow-x:hidden;">
+
+<header style="{{ navStyle }}">
+  <div style="max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;">
+    <a href="index.dc.html" style="display:flex;align-items:center;"><img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:26px;display:block;"></a>
+    <nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
+      <a href="index.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">Home</a>
+      <div style="position:relative;">
+        <button onClick="{{ toggleServices }}" style="background:none;border:none;color:var(--stone-100);font:500 15px var(--font-body);cursor:pointer;display:flex;align-items:center;gap:6px;padding:8px 0;">Our Services<span style="font-size:14px;transform:{{ servicesArrow }};transition:transform 200ms;">▾</span></button>
+        <div style="position:absolute;top:100%;left:0;margin-top:10px;background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);min-width:260px;overflow:hidden;opacity:{{ servicesOpacity }};transform:{{ servicesTransform }};transition:opacity 200ms ease,transform 200ms ease;pointer-events:{{ servicesPointer }};z-index:60;">
+          <a href="transfers.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Airport & Private Transfers</a>
+          <a href="tours.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Private Tours</a>
+          <a href="tailor-made.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Tailor-Made Journeys</a>
+          <a href="classic-cars.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;" style-hover="background:var(--stone-50);">Classic Cars & Events</a>
+        </div>
+      </div>
+      <a href="corporate.dc.html" style="font:600 15px var(--font-body);color:var(--green-300);text-decoration:none;">For Business</a>
+      <a href="faq.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">FAQ</a>
+      <button onClick="{{ toggleLang }}" style="background:none;border:1px solid rgba(255,255,255,0.35);border-radius:var(--radius-pill);color:var(--stone-100);font:600 12px var(--font-body);padding:6px 12px;cursor:pointer;letter-spacing:0.04em;">{{ langLabel }}</button>
+    </nav>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="md" onClick="{{ toBooking }}" hint-size="120px,44px">Book now</x-import>
+  </div>
+</header>
+
+<section style="position:relative;display:flex;align-items:flex-end;background:var(--green-900);padding-top:120px;">
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 32px 48px;width:100%;box-sizing:border-box;">
+    <h1 style="font:var(--text-h1);color:#fff;margin:0 0 14px;max-width:600px;">Corporate Mobility</h1>
+    <p style="font:var(--text-body-lg);color:var(--stone-200);max-width:520px;margin:0;">Ground transport that shows up on time and stays out of the way — for teams, events and recurring accounts.</p>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:72px 32px;">
+  <h2 style="font:var(--text-h2);color:#fff;margin:0 0 32px;">Built for the way companies actually travel</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;">
+    <div><h3 style="font:var(--text-h4);color:#fff;margin:0 0 8px;">Punctuality</h3><p style="font:var(--text-body-sm);color:var(--stone-300);margin:0;">Flights and schedules tracked, drivers briefed the day before.</p></div>
+    <div><h3 style="font:var(--text-h4);color:#fff;margin:0 0 8px;">Discretion</h3><p style="font:var(--text-body-sm);color:var(--stone-300);margin:0;">No branding on the vehicle interior, no small talk unless you start it.</p></div>
+    <div><h3 style="font:var(--text-h4);color:#fff;margin:0 0 8px;">Invoicing</h3><p style="font:var(--text-body-sm);color:var(--stone-300);margin:0;">Monthly billing on account, one invoice for all your trips.</p></div>
+    <div><h3 style="font:var(--text-h4);color:#fff;margin:0 0 8px;">A quiet cabin to work</h3><p style="font:var(--text-body-sm);color:var(--stone-300);margin:0;">Wi-Fi on request, a silent electric motor between meetings.</p></div>
+    <div><h3 style="font:var(--text-h4);color:#fff;margin:0 0 8px;">Account management</h3><p style="font:var(--text-body-sm);color:var(--stone-300);margin:0;">One contact for recurring bookings, not a new driver brief every time.</p></div>
+    <div><h3 style="font:var(--text-h4);color:#fff;margin:0 0 8px;">Electric, premium fleet</h3><p style="font:var(--text-body-sm);color:var(--stone-300);margin:0;">Tesla Model Y for executives, V-Class for delegations.</p></div>
+  </div>
+</section>
+
+<section style="background:#fff;padding:72px 32px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="font:var(--text-h2);color:var(--text-primary);margin:0 0 32px;">Where our cars already park</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+      <div style="background:var(--bg-surface-sunken);border:1px solid var(--border-subtle);overflow:hidden;">
+        <img src="assets/fleet-tesla-charging.jpg" alt="Tesla Model Y charging at Wine & Books Lisboa Hotel" style="width:100%;height:200px;object-fit:cover;display:block;filter:saturate(1.06) contrast(1.04);">
+        <div style="padding:18px;"><h3 style="font:var(--text-h4);margin:0 0 4px;">Wine & Books Lisboa Hotel</h3><p style="font:var(--text-body-sm);color:var(--text-secondary);margin:0;">Overnight charging arranged directly with the hotel.</p></div>
+      </div>
+      <div style="background:var(--bg-surface-sunken);border:1px solid var(--border-subtle);overflow:hidden;">
+        <img src="assets/fleet-tesla-iberostar.jpg" alt="Tesla Model Y at The Yeatman, Porto" style="width:100%;height:200px;object-fit:cover;display:block;filter:saturate(1.06) contrast(1.04);">
+        <div style="padding:18px;"><h3 style="font:var(--text-h4);margin:0 0 4px;">The Yeatman, Porto/Gaia</h3><p style="font:var(--text-body-sm);color:var(--text-secondary);margin:0;">The same standing arrangement, extended to Porto engagements.</p></div>
+      </div>
+    </div>
+    <div style="margin-top:36px;">
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.TrustBar" review-score="{{ 5 }}" review-count="{{ 140 }}" dc-props="{{ trustBarProps }}" hint-size="100%,60px"></x-import>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:900px;margin:0 auto;padding:72px 32px;text-align:center;">
+  <h2 style="font:var(--text-h2);color:#fff;margin:0 0 12px;">Request a corporate account</h2>
+  <p style="font:var(--text-body-lg);color:var(--stone-300);margin:0 0 32px;">Tell us your typical routes and volume — we set up an account and a standing rate.</p>
+  <div style="display:flex;flex-direction:column;gap:20px;text-align:left;background:#fff;padding:32px;border:1px solid rgba(255,255,255,0.08);">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Company name" placeholder="Your company" hint-size="100%,70px"></x-import>
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Contact email" placeholder="you@company.com" type="email" hint-size="100%,70px"></x-import>
+    </div>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Typical monthly volume" placeholder="e.g. 10 airport transfers, 4 city trips" hint-size="100%,70px"></x-import>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="lg" onClick="{{ toBooking }}" hint-size="240px,54px">Request a corporate account</x-import>
+  </div>
+</section>
+
+<footer style="background:var(--green-900);color:var(--stone-100);padding:64px 32px 28px;border-top:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:40px;">
+    <div>
+      <img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:22px;margin-bottom:14px;display:block;">
+      <p style="font:var(--text-body-sm);color:var(--stone-300);max-width:260px;margin:0 0 16px;">The private, comfortable and responsible way to discover Portugal.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Services</span>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Airport Transfers</a>
+      <a href="tours.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Private Tours</a>
+      <a href="tailor-made.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Tailor-Made Journeys</a>
+      <a href="classic-cars.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Classic Cars & Events</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Company</span>
+      <a href="about.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">About Us</a>
+      <a href="faq.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">FAQ</a>
+      <a href="contact.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Contact</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Contact</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">+351 912 926 688</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">info@idealgreen.pt</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">Rua Cesário Verde 35, Loja BB<br>2790-491 Queijas, Portugal</span>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:36px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font:var(--text-caption);color:var(--stone-400);">© 2026 Idealgreen · Private tours & transfers since 2022</div>
+</footer>
+
+<x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.FloatingContact" phone="+351912926688" whatsapp="351912926688" hint-size="60px,60px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, servicesOpen: false, lang: 'EN' };
+  componentDidMount() {
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this._onScroll);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+  renderVals() {
+    return {
+      navStyle: `position:fixed;top:0;left:0;right:0;z-index:40;background:${this.state.scrolled ? 'rgba(14,21,18,0.92)' : 'rgba(14,21,18,0.35)'};backdrop-filter:blur(10px);transition:background 300ms ease;border-bottom:1px solid rgba(255,255,255,0.08);`,
+      toggleServices: () => this.setState(s => ({ servicesOpen: !s.servicesOpen })),
+      servicesArrow: this.state.servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      servicesOpacity: this.state.servicesOpen ? 1 : 0,
+      servicesTransform: this.state.servicesOpen ? 'translateY(0)' : 'translateY(-8px)',
+      servicesPointer: this.state.servicesOpen ? 'auto' : 'none',
+      toggleLang: () => { window.location.href = 'corporate-pt.dc.html'; },
+      langLabel: 'PT',
+      toBooking: () => { window.location.href = 'contact.dc.html'; },
+      trustBarProps: { partners: ['Hotel da Baixa', 'Wine & Books Lisboa', 'Blue Liberdade', 'Onyria Quinta da Marinha', 'The Yeatman'] }
+    };
+  }
+}
+</script>
+</body>
+</html>

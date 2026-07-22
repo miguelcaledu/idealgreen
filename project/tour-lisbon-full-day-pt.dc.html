@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Tour Privado em Lisboa, Dia Inteiro | Idealgreen</title>
+<meta name="description" content="Private full-day Lisbon tour by Tesla Model Y — Belém, Alfama, LX Factory and city viewpoints. €165 total por veículo.">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/colors.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/typography.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/base.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/styles.css">
+<script src="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--bg-page);}
+  a{color:var(--text-link);}
+  a:hover{color:var(--text-link-hover);}
+  @keyframes ig-fade-up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+  .ig-stop{opacity:0;}
+  .ig-stop.ig-in{animation:ig-fade-up 500ms ease-out forwards;}
+</style>
+</helmet>
+
+<div style="font-family:var(--font-body);background:var(--bg-page);color:var(--text-primary);overflow-x:hidden;">
+
+<header style="{{ navStyle }}">
+  <div style="max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;">
+    <a href="index-pt.dc.html" style="display:flex;align-items:center;"><img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:26px;display:block;"></a>
+    <nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
+      <a href="index-pt.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">Início</a>
+      <div style="position:relative;">
+        <button onClick="{{ toggleServices }}" style="background:none;border:none;color:var(--stone-100);font:600 15px var(--font-body);cursor:pointer;display:flex;align-items:center;gap:6px;padding:8px 0;">Os Nossos Serviços<span style="font-size:14px;transform:{{ servicesArrow }};transition:transform 200ms;">▾</span></button>
+        <div style="position:absolute;top:100%;left:0;margin-top:10px;background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);min-width:260px;overflow:hidden;opacity:{{ servicesOpacity }};transform:{{ servicesTransform }};transition:opacity 200ms ease,transform 200ms ease;pointer-events:{{ servicesPointer }};z-index:60;">
+          <a href="transfers-pt.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Transfers de Aeroporto e Privados</a>
+          <a href="tours-pt.dc.html" style="display:block;padding:14px 18px;font:600 14px var(--font-body);color:var(--green-700);text-decoration:none;border-bottom:1px solid var(--border-subtle);">Tours Privados</a>
+          <a href="tailor-made-pt.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Viagens à Medida</a>
+          <a href="classic-cars-pt.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;" style-hover="background:var(--stone-50);">Carros Clássicos e Eventos</a>
+        </div>
+      </div>
+      <a href="corporate-pt.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">Para Empresas</a>
+      <a href="faq-pt.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">Perguntas Frequentes</a>
+      <button onClick="{{ toggleLang }}" style="background:none;border:1px solid rgba(255,255,255,0.35);border-radius:var(--radius-pill);color:var(--stone-100);font:600 12px var(--font-body);padding:6px 12px;cursor:pointer;letter-spacing:0.04em;">{{ langLabel }}</button>
+    </nav>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="md" onClick="{{ toBooking }}" hint-size="120px,44px">Reservar</x-import>
+  </div>
+</header>
+
+<section style="position:relative;display:flex;align-items:flex-end;background:var(--green-900);padding-top:120px;">
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 32px 40px;width:100%;box-sizing:border-box;">
+    <a href="tours-pt.dc.html" style="font:600 13px var(--font-body);color:var(--stone-100);text-decoration:none;">← Todos os tours</a>
+    <h1 style="font:600 2.75rem/1.1 var(--font-display);color:#fff;margin:10px 0 0;">Lisboa, dia inteiro</h1>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:48px 32px 80px;display:grid;grid-template-columns:1.3fr 0.7fr;gap:48px;align-items:start;">
+  <div>
+    <p style="font:var(--text-body-lg);color:var(--text-secondary);margin:0 0 32px;max-width:560px;">Os monumentos ribeirinhos, os bairros antigos e os miradouros que os lisboetas realmente usam — ao seu ritmo.</p>
+    <h2 style="font:var(--text-h2);margin:0 0 24px;">Itinerário sugerido</h2>
+    <div id="ig-itinerary">
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.TourItinerary" stops="{{ stops }}" hint-size="100%,420px"></x-import>
+    </div>
+    <p style="font:var(--text-body);color:var(--text-secondary);margin-top:8px;max-width:520px;">O itinerário adapta-se a si — demore-se em Alfama, ou troque um miradouro por mais tempo em Belém.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px;">
+      <div>
+        <h3 style="font:var(--text-h4);margin:0 0 12px;">Incluído</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+          <li style="font:var(--text-body-sm);color:var(--text-secondary);">✓ Motorista e veículo durante todo o dia</li>
+          <li style="font:var(--text-body-sm);color:var(--text-secondary);">✓ Combustível, portagens e estacionamento</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font:var(--text-h4);margin:0 0 12px;">Não incluído</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+          <li style="font:var(--text-body-sm);color:var(--text-muted);">– Bilhetes de palácios e monumentos</li>
+          <li style="font:var(--text-body-sm);color:var(--text-muted);">– Refeições</li>
+          <li style="font:var(--text-body-sm);color:var(--text-muted);">– Guia certificado (pode ser contratado a pedido)</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font:var(--text-body-sm);color:var(--text-secondary);margin:24px 0 0;">O seu motorista costuma sugerir uma tasca familiar em Alfama, longe das esplanadas ribeirinhas.</p>
+  </div>
+
+  <div style="position:sticky;top:96px;border:1px solid var(--border-subtle);padding:28px;background:#fff;box-shadow:var(--shadow-md);">
+    <div style="font:600 36px var(--font-display);color:var(--green-700);">€165</div>
+    <div style="font:var(--text-body-sm);color:var(--text-muted);margin-bottom:18px;">total por veículo</div>
+    <div style="display:flex;flex-direction:column;gap:10px;font:var(--text-body-sm);color:var(--text-secondary);border-top:1px solid var(--border-subtle);padding-top:16px;margin-bottom:20px;">
+      <div>Duração: <strong style="color:var(--text-primary);">8 horas</strong></div>
+      <div>Passageiros máx.: <strong style="color:var(--text-primary);">4</strong></div>
+      <div>Veículo: <strong style="color:var(--text-primary);">Tesla Model Y</strong></div>
+      <div>Idiomas: <strong style="color:var(--text-primary);">Inglês, Português, Espanhol</strong></div>
+      <div style="color:var(--text-muted);">Cancelamento gratuito até 24 horas antes do tour [CONFIRMAR].</div>
+    </div>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="lg" onClick="{{ toBooking }}" hint-size="100%,54px">Ver disponibilidade</x-import>
+  </div>
+</section>
+
+<footer style="background:var(--green-900);color:var(--stone-100);padding:64px 32px 28px;border-top:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:40px;">
+    <div>
+      <img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:22px;margin-bottom:14px;display:block;">
+      <p style="font:var(--text-body-sm);color:var(--stone-300);max-width:260px;margin:0 0 16px;">A forma privada, confortável e responsável de descobrir Portugal.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Rotas populares</span>
+      <a href="transfers-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisboa–Porto · €370</a>
+      <a href="transfers-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisboa–Sintra · €45</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Empresa</span>
+      <a href="about-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Sobre Nós</a>
+      <a href="faq-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Perguntas Frequentes</a>
+      <a href="contact-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Contacto</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Contacto</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">+351 912 926 688</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">info@idealgreen.pt</span>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:36px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font:var(--text-caption);color:var(--stone-400);">© 2026 Idealgreen · Tours e transfers privados desde 2022</div>
+</footer>
+
+<x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.FloatingContact" phone="+351912926688" whatsapp="351912926688" hint-size="60px,60px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, servicesOpen: false, lang: 'EN' };
+
+  componentDidMount() {
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this._onScroll);
+    setTimeout(() => {
+      const el = document.getElementById('ig-itinerary');
+      if (el) { el.querySelectorAll('div').forEach((d, i) => { d.style.transitionDelay = ''; }); el.classList.add('ig-in'); el.style.animation = 'ig-fade-up 600ms ease-out both'; }
+    }, 150);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+
+  renderVals() {
+    return {
+      navStyle: `position:fixed;top:0;left:0;right:0;z-index:40;background:${this.state.scrolled ? 'rgba(14,21,18,0.92)' : 'rgba(14,21,18,0.35)'};backdrop-filter:blur(10px);transition:background 300ms ease;border-bottom:1px solid rgba(255,255,255,0.08);`,
+      toggleServices: () => this.setState(s => ({ servicesOpen: !s.servicesOpen })),
+      servicesArrow: this.state.servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      servicesOpacity: this.state.servicesOpen ? 1 : 0,
+      servicesTransform: this.state.servicesOpen ? 'translateY(0)' : 'translateY(-8px)',
+      servicesPointer: this.state.servicesOpen ? 'auto' : 'none',
+      toggleLang: () => { window.location.href = 'tour-lisbon-full-day.dc.html'; },
+      langLabel: 'EN',
+      toBooking: () => { window.location.href = 'contact-pt.dc.html'; },
+      stops: [{"time":"09:00","title":"Pickup in Lisbon","description":"Your driver collects you from your hotel or address."},{"time":"09:30","title":"Belém","description":"Mosteiro dos Jerónimos, Torre de Belém e a pastelaria original dos pastéis de nata."},{"time":"12:00","title":"Alfama & Castelo de São Jorge","description":"O bairro mais antigo, a pé, a terminar nas muralhas do castelo."},{"time":"13:30","title":"Lunch in Alfama","description":"A stop away from the riverside terraces, at a spot your driver knows."},{"time":"15:00","title":"LX Factory","description":"Um antigo complexo industrial, hoje estúdios, lojas e murais."},{"time":"16:30","title":"Miradouro","description":"Um dos miradouros da cidade sobre o Tejo, à hora certa da luz."},{"time":"18:00","title":"Drop-off in Lisbon","description":"Return to your hotel or address."}]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.DS_Store
+
+# Next.js app (project/)
+project/node_modules
+project/.next
+project/out
+project/build
+project/.vercel
+project/npm-debug.log*
+
+# env files
+.env
+.env.local
+.env*.local
+*.pem

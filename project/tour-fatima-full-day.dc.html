@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Private Fátima Tour, Full Day | Idealgreen</title>
+<meta name="description" content="Private full-day Fátima tour by Mercedes V-Class — the Sanctuary, Batalha Monastery, Nazaré and Óbidos. €300 total per vehicle.">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/colors.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/typography.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/base.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/styles.css">
+<script src="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--bg-page);}
+  a{color:var(--text-link);}
+  a:hover{color:var(--text-link-hover);}
+  @keyframes ig-fade-up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+  .ig-stop{opacity:0;}
+  .ig-stop.ig-in{animation:ig-fade-up 500ms ease-out forwards;}
+</style>
+</helmet>
+
+<div style="font-family:var(--font-body);background:var(--bg-page);color:var(--text-primary);overflow-x:hidden;">
+
+<header style="{{ navStyle }}">
+  <div style="max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;">
+    <a href="index.dc.html" style="display:flex;align-items:center;"><img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:26px;display:block;"></a>
+    <nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
+      <a href="index.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">Home</a>
+      <div style="position:relative;">
+        <button onClick="{{ toggleServices }}" style="background:none;border:none;color:var(--stone-100);font:600 15px var(--font-body);cursor:pointer;display:flex;align-items:center;gap:6px;padding:8px 0;">Our Services<span style="font-size:14px;transform:{{ servicesArrow }};transition:transform 200ms;">▾</span></button>
+        <div style="position:absolute;top:100%;left:0;margin-top:10px;background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);min-width:260px;overflow:hidden;opacity:{{ servicesOpacity }};transform:{{ servicesTransform }};transition:opacity 200ms ease,transform 200ms ease;pointer-events:{{ servicesPointer }};z-index:60;">
+          <a href="transfers.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Airport & Private Transfers</a>
+          <a href="tours.dc.html" style="display:block;padding:14px 18px;font:600 14px var(--font-body);color:var(--green-700);text-decoration:none;border-bottom:1px solid var(--border-subtle);">Private Tours</a>
+          <a href="tailor-made.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Tailor-Made Journeys</a>
+          <a href="classic-cars.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;" style-hover="background:var(--stone-50);">Classic Cars & Events</a>
+        </div>
+      </div>
+      <a href="corporate.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">For Business</a>
+      <a href="faq.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">FAQ</a>
+      <button onClick="{{ toggleLang }}" style="background:none;border:1px solid rgba(255,255,255,0.35);border-radius:var(--radius-pill);color:var(--stone-100);font:600 12px var(--font-body);padding:6px 12px;cursor:pointer;letter-spacing:0.04em;">{{ langLabel }}</button>
+    </nav>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="md" onClick="{{ toBooking }}" hint-size="120px,44px">Book now</x-import>
+  </div>
+</header>
+
+<section style="position:relative;display:flex;align-items:flex-end;background:var(--green-900);padding-top:120px;">
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 32px 40px;width:100%;box-sizing:border-box;">
+    <a href="tours.dc.html" style="font:600 13px var(--font-body);color:var(--stone-100);text-decoration:none;">← All tours</a>
+    <h1 style="font:600 2.75rem/1.1 var(--font-display);color:#fff;margin:10px 0 0;">Fátima, full day</h1>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:48px 32px 80px;display:grid;grid-template-columns:1.3fr 0.7fr;gap:48px;align-items:start;">
+  <div>
+    <p style="font:var(--text-body-lg);color:var(--text-secondary);margin:0 0 32px;max-width:560px;">The Sanctuary, a Gothic monastery, and the Atlantic coast, all in one day from Lisbon.</p>
+    <h2 style="font:var(--text-h2);margin:0 0 24px;">Suggested itinerary</h2>
+    <div id="ig-itinerary">
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.TourItinerary" stops="{{ stops }}" hint-size="100%,420px"></x-import>
+    </div>
+    <p style="font:var(--text-body);color:var(--text-secondary);margin-top:8px;max-width:520px;">The itinerary adapts to you — more time at the Sanctuary, or an earlier stop in Nazaré for the beach.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px;">
+      <div>
+        <h3 style="font:var(--text-h4);margin:0 0 12px;">Included</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+          <li style="font:var(--text-body-sm);color:var(--text-secondary);">✓ Driver and vehicle for the full day</li>
+          <li style="font:var(--text-body-sm);color:var(--text-secondary);">✓ Fuel, tolls and parking</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font:var(--text-h4);margin:0 0 12px;">Not included</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+          <li style="font:var(--text-body-sm);color:var(--text-muted);">– Palace and monument tickets</li>
+          <li style="font:var(--text-body-sm);color:var(--text-muted);">– Meals</li>
+          <li style="font:var(--text-body-sm);color:var(--text-muted);">– Licensed guide (can be arranged on request)</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font:var(--text-body-sm);color:var(--text-secondary);margin:24px 0 0;">Your driver usually suggests a seafood restaurant in Nazaré, overlooking the beach.</p>
+  </div>
+
+  <div style="position:sticky;top:96px;border:1px solid var(--border-subtle);padding:28px;background:#fff;box-shadow:var(--shadow-md);">
+    <div style="font:600 36px var(--font-display);color:var(--green-700);">€300</div>
+    <div style="font:var(--text-body-sm);color:var(--text-muted);margin-bottom:18px;">total per vehicle</div>
+    <div style="display:flex;flex-direction:column;gap:10px;font:var(--text-body-sm);color:var(--text-secondary);border-top:1px solid var(--border-subtle);padding-top:16px;margin-bottom:20px;">
+      <div>Duration: <strong style="color:var(--text-primary);">8 hours</strong></div>
+      <div>Max passengers: <strong style="color:var(--text-primary);">7</strong></div>
+      <div>Vehicle: <strong style="color:var(--text-primary);">Mercedes V-Class</strong></div>
+      <div>Languages: <strong style="color:var(--text-primary);">English, Portuguese, Spanish</strong></div>
+      <div style="color:var(--text-muted);">Free cancellation up to 24 hours before the tour [CONFIRM].</div>
+    </div>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="lg" onClick="{{ toBooking }}" hint-size="100%,54px">Check availability</x-import>
+  </div>
+</section>
+
+<footer style="background:var(--green-900);color:var(--stone-100);padding:64px 32px 28px;border-top:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:40px;">
+    <div>
+      <img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:22px;margin-bottom:14px;display:block;">
+      <p style="font:var(--text-body-sm);color:var(--stone-300);max-width:260px;margin:0 0 16px;">The private, comfortable and responsible way to discover Portugal.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Popular routes</span>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisbon–Porto · €370</a>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisbon–Sintra · €45</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Company</span>
+      <a href="about.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">About Us</a>
+      <a href="faq.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">FAQ</a>
+      <a href="contact.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Contact</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Contact</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">+351 912 926 688</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">info@idealgreen.pt</span>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:36px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font:var(--text-caption);color:var(--stone-400);">© 2026 Idealgreen · Private tours & transfers since 2022</div>
+</footer>
+
+<x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.FloatingContact" phone="+351912926688" whatsapp="351912926688" hint-size="60px,60px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, servicesOpen: false, lang: 'EN' };
+
+  componentDidMount() {
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this._onScroll);
+    setTimeout(() => {
+      const el = document.getElementById('ig-itinerary');
+      if (el) { el.querySelectorAll('div').forEach((d, i) => { d.style.transitionDelay = ''; }); el.classList.add('ig-in'); el.style.animation = 'ig-fade-up 600ms ease-out both'; }
+    }, 150);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+
+  renderVals() {
+    return {
+      navStyle: `position:fixed;top:0;left:0;right:0;z-index:40;background:${this.state.scrolled ? 'rgba(14,21,18,0.92)' : 'rgba(14,21,18,0.35)'};backdrop-filter:blur(10px);transition:background 300ms ease;border-bottom:1px solid rgba(255,255,255,0.08);`,
+      toggleServices: () => this.setState(s => ({ servicesOpen: !s.servicesOpen })),
+      servicesArrow: this.state.servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      servicesOpacity: this.state.servicesOpen ? 1 : 0,
+      servicesTransform: this.state.servicesOpen ? 'translateY(0)' : 'translateY(-8px)',
+      servicesPointer: this.state.servicesOpen ? 'auto' : 'none',
+      toggleLang: () => { window.location.href = 'tour-fatima-full-day-pt.dc.html'; },
+      langLabel: 'PT',
+      toBooking: () => { window.location.href = 'contact.dc.html'; },
+      stops: [{"time":"08:00","title":"Pickup in Lisbon","description":"Your driver collects you from your hotel or address."},{"time":"09:30","title":"Fátima Sanctuary","description":"The basilicas and the site of the 1917 apparitions."},{"time":"11:30","title":"Batalha Monastery","description":"A UNESCO World Heritage Gothic monastery, en route to the coast."},{"time":"13:00","title":"Lunch in Nazaré","description":"Overlooking the beach, at a spot your driver knows."},{"time":"14:30","title":"Sítio viewpoint, Nazaré","description":"The clifftop viewpoint above the famous big-wave beach."},{"time":"16:00","title":"Óbidos","description":"The walled medieval town, on foot."},{"time":"18:00","title":"Drop-off in Lisbon","description":"Return to your hotel or address."}]
+    };
+  }
+}
+</script>
+</body>
+</html>

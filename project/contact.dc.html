@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Book a Transfer or Tour | Contact Idealgreen</title>
+<meta name="description" content="Book a private transfer or tour with Idealgreen. Phone, WhatsApp, email and our address in Queijas, Oeiras — reply within one business day.">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/colors.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/typography.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/base.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/styles.css">
+<script src="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--bg-page);}
+  a{color:var(--text-link);}
+  a:hover{color:var(--text-link-hover);}
+</style>
+</helmet>
+
+<div style="font-family:var(--font-body);background:var(--bg-page);color:var(--text-primary);overflow-x:hidden;">
+
+<header style="{{ navStyle }}">
+  <div style="max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;">
+    <a href="index.dc.html" style="display:flex;align-items:center;"><img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:26px;display:block;"></a>
+    <nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
+      <a href="index.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">Home</a>
+      <div style="position:relative;">
+        <button onClick="{{ toggleServices }}" style="background:none;border:none;color:var(--stone-100);font:500 15px var(--font-body);cursor:pointer;display:flex;align-items:center;gap:6px;padding:8px 0;">Our Services<span style="font-size:14px;transform:{{ servicesArrow }};transition:transform 200ms;">▾</span></button>
+        <div style="position:absolute;top:100%;left:0;margin-top:10px;background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);min-width:260px;overflow:hidden;opacity:{{ servicesOpacity }};transform:{{ servicesTransform }};transition:opacity 200ms ease,transform 200ms ease;pointer-events:{{ servicesPointer }};z-index:60;">
+          <a href="transfers.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Airport & Private Transfers</a>
+          <a href="tours.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Private Tours</a>
+          <a href="tailor-made.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Tailor-Made Journeys</a>
+          <a href="classic-cars.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;" style-hover="background:var(--stone-50);">Classic Cars & Events</a>
+        </div>
+      </div>
+      <a href="corporate.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">For Business</a>
+      <a href="faq.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">FAQ</a>
+      <button onClick="{{ toggleLang }}" style="background:none;border:1px solid rgba(255,255,255,0.35);border-radius:var(--radius-pill);color:var(--stone-100);font:600 12px var(--font-body);padding:6px 12px;cursor:pointer;letter-spacing:0.04em;">{{ langLabel }}</button>
+    </nav>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="ghost" size="md" hint-size="110px,44px" disabled="{{ true }}" style="color:#fff;">Book now</x-import>
+  </div>
+</header>
+
+<section style="background:var(--green-900);padding:100px 32px 40px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h1 style="font:600 2.5rem/1.1 var(--font-display);color:#fff;margin:0 0 12px;max-width:640px;">Book a transfer or tour</h1>
+    <p style="font:var(--text-body-lg);color:var(--stone-200);margin:0;max-width:640px;">We reply within one business day, usually much sooner on WhatsApp [CONFIRM reply time].</p>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:48px 32px 80px;display:grid;grid-template-columns:1.3fr 0.7fr;gap:48px;align-items:start;">
+  <div>
+    <div style="display:flex;gap:8px;margin-bottom:28px;border-bottom:1px solid var(--border-subtle);">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+        <button onClick="{{ t.onClick }}" style="background:none;border:none;padding:10px 18px;font:600 15px var(--font-body);cursor:pointer;color:{{ t.color }};border-bottom:2px solid {{ t.border }};">{{ t.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Select" label="Service type" options="{{ serviceOptions }}" value="{{ serviceType }}" on-change="{{ setServiceType }}" placeholder="Select a service" hint-size="100%,70px"></x-import>
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Route or tour" placeholder="e.g. Lisbon Airport to Sintra, or Sintra full day" hint-size="100%,70px"></x-import>
+      <div style="display:grid;grid-template-columns:1fr;gap:16px;">
+        <dc-import name="DatePicker" label="Date & time" lang="en" hint-size="100%,70px"></dc-import>
+      </div>
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.PassengerSelector" adults="{{ adults }}" children="{{ kids }}" on-adults-change="{{ setAdults }}" on-children-change="{{ setKids }}" hint-size="100%,110px"></x-import>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Luggage (bags)" placeholder="e.g. 3 large, 2 small" hint-size="100%,70px"></x-import>
+        <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Child seats" placeholder="e.g. 1 infant seat" hint-size="100%,70px"></x-import>
+      </div>
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Flight number (for transfers)" placeholder="e.g. TP1234" hint-size="100%,70px"></x-import>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Full name" placeholder="Your name" hint-size="100%,70px"></x-import>
+        <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Email" placeholder="you@email.com" type="email" hint-size="100%,70px"></x-import>
+      </div>
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Phone (with country code)" placeholder="+44 7700 900000" hint-size="100%,70px"></x-import>
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Notes (optional)" placeholder="Anything else we should know" hint-size="100%,70px"></x-import>
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="lg" onClick="{{ submit }}" hint-size="200px,54px">Send request</x-import>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:24px;">
+    <div style="border:1px solid var(--border-subtle);padding:24px;background:#fff;">
+      <h3 style="font:var(--text-h4);margin:0 0 16px;">Reach us directly</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;font:var(--text-body-sm);color:var(--text-secondary);">
+        <a href="tel:+351912926688" style="text-decoration:none;color:var(--text-secondary);">☎ +351 912 926 688</a>
+        <a href="https://wa.me/351912926688" style="text-decoration:none;color:var(--text-secondary);">WhatsApp: +351 912 926 688</a>
+        <a href="mailto:info@idealgreen.pt" style="text-decoration:none;color:var(--text-secondary);">info@idealgreen.pt</a>
+        <span>Rua Cesário Verde 35, Loja BB<br>2790-491 Queijas, Portugal</span>
+      </div>
+    </div>
+    <div style="border:1px solid var(--border-subtle);overflow:hidden;">
+      <iframe title="Idealgreen office location" src="https://www.google.com/maps?q=Rua+Ces%C3%A1rio+Verde+35,+2790-491+Queijas,+Portugal&output=embed" style="width:100%;height:240px;border:0;display:block;"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--green-900);color:var(--stone-100);padding:64px 32px 28px;border-top:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:40px;">
+    <div>
+      <img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:22px;margin-bottom:14px;display:block;">
+      <p style="font:var(--text-body-sm);color:var(--stone-300);max-width:260px;margin:0 0 16px;">The private, comfortable and responsible way to discover Portugal.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Services</span>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Airport Transfers</a>
+      <a href="tours.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Private Tours</a>
+      <a href="corporate.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Corporate Mobility</a>
+      <a href="classic-cars.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Classic Cars & Events</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Company</span>
+      <a href="about.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">About Us</a>
+      <a href="faq.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">FAQ</a>
+      <a href="contact.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Contact</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Contact</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">+351 912 926 688</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">info@idealgreen.pt</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">Rua Cesário Verde 35, Loja BB<br>2790-491 Queijas, Portugal</span>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:36px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font:var(--text-caption);color:var(--stone-400);">© 2026 Idealgreen · Private tours & transfers since 2022</div>
+</footer>
+
+<x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.FloatingContact" phone="+351912926688" whatsapp="351912926688" hint-size="60px,60px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, servicesOpen: false, lang: 'EN', activeTab: 'all', serviceType: '', adults: 2, kids: 0 };
+  componentDidMount() {
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this._onScroll);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+  renderVals() {
+    const tabDef = (key, label) => ({
+      label,
+      onClick: () => this.setState({ activeTab: key }),
+      color: this.state.activeTab === key ? 'var(--green-700)' : 'var(--text-secondary)',
+      border: this.state.activeTab === key ? '2px solid var(--green-700)' : '2px solid transparent'
+    });
+    return {
+      navStyle: `position:fixed;top:0;left:0;right:0;z-index:40;background:${this.state.scrolled ? 'rgba(14,21,18,0.92)' : 'rgba(14,21,18,0.35)'};backdrop-filter:blur(10px);transition:background 300ms ease;border-bottom:1px solid rgba(255,255,255,0.08);`,
+      toggleServices: () => this.setState(s => ({ servicesOpen: !s.servicesOpen })),
+      servicesArrow: this.state.servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      servicesOpacity: this.state.servicesOpen ? 1 : 0,
+      servicesTransform: this.state.servicesOpen ? 'translateY(0)' : 'translateY(-8px)',
+      servicesPointer: this.state.servicesOpen ? 'auto' : 'none',
+      toggleLang: () => { window.location.href = 'contact-pt.dc.html'; },
+      langLabel: 'PT',
+      tabs: [tabDef('all', 'All'), tabDef('tours', 'Tours'), tabDef('transfers', 'Transfers')],
+      serviceType: this.state.serviceType,
+      setServiceType: (v) => this.setState({ serviceType: v }),
+      serviceOptions: [
+        { value: 'transfer', label: 'Airport / Private Transfer' },
+        { value: 'tour', label: 'Private Tour' },
+        { value: 'tailor-made', label: 'Tailor-Made Journey' },
+        { value: 'corporate', label: 'Corporate Mobility' },
+        { value: 'classic', label: 'Classic Cars & Events' }
+      ],
+      adults: this.state.adults,
+      kids: this.state.kids,
+      setAdults: (n) => this.setState({ adults: n }),
+      setKids: (n) => this.setState({ kids: n }),
+      submit: () => { window.location.href = 'https://wa.me/351912926688'; }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Carros Clássicos e Eventos | Vintage Mercedes for Weddings | Idealgreen</title>
+<meta name="description" content="Vintage Mercedes-Benz cars for weddings, private events, tours and productions in Portugal. Eight cars, driver included, decoration on request.">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/colors.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/typography.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/base.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/styles.css">
+<script src="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--bg-page);}
+  /* Re-skin ClassicCarCard to brand colors on this page */
+  :root{--cc-cream:#FFFFFF;--cc-cream-deep:var(--stone-200);--cc-burgundy:var(--green-700);--cc-burgundy-dark:var(--green-800);--cc-brass:var(--green-400);--cc-brass-light:var(--green-300);--cc-text:var(--charcoal-800);}
+  a{color:var(--text-link);}
+  a:hover{color:var(--text-link-hover);}
+</style>
+</helmet>
+
+<div style="font-family:var(--font-body);background:var(--bg-page);color:var(--text-primary);overflow-x:hidden;">
+
+<header style="{{ navStyle }}">
+  <div style="max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;">
+    <a href="index-pt.dc.html" style="display:flex;align-items:center;"><img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:26px;display:block;"></a>
+    <nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
+      <a href="index-pt.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">Início</a>
+      <div style="position:relative;">
+        <button onClick="{{ toggleServices }}" style="background:none;border:none;color:var(--stone-100);font:500 15px var(--font-body);cursor:pointer;display:flex;align-items:center;gap:6px;padding:8px 0;">Os Nossos Serviços<span style="font-size:14px;transform:{{ servicesArrow }};transition:transform 200ms;">▾</span></button>
+        <div style="position:absolute;top:100%;left:0;margin-top:10px;background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);min-width:260px;overflow:hidden;opacity:{{ servicesOpacity }};transform:{{ servicesTransform }};transition:opacity 200ms ease,transform 200ms ease;pointer-events:{{ servicesPointer }};z-index:60;">
+          <a href="transfers-pt.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);">Transfers de Aeroporto e Privados</a>
+          <a href="tours-pt.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);">Tours Privados</a>
+          <a href="tailor-made-pt.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);">Viagens à Medida</a>
+          <a href="classic-cars-pt.dc.html" style="display:block;padding:14px 18px;font:600 14px var(--font-body);color:var(--green-700);text-decoration:none;">Carros Clássicos e Eventos</a>
+        </div>
+      </div>
+      <a href="corporate-pt.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;">Para Empresas</a>
+      <a href="faq-pt.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;">Perguntas Frequentes</a>
+      <button onClick="{{ toggleLang }}" style="background:none;border:1px solid rgba(255,255,255,0.35);border-radius:var(--radius-pill);color:var(--stone-100);font:600 12px var(--font-body);padding:6px 12px;cursor:pointer;letter-spacing:0.04em;">{{ langLabel }}</button>
+    </nav>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="md" onClick="{{ toBooking }}" hint-size="120px,44px">Contactar</x-import>
+  </div>
+</header>
+
+<section style="position:relative;height:420px;display:flex;align-items:flex-end;">
+  <img src="assets/classic-mercedes-ponton-wedding-front.jpg" alt="Vintage black Mercedes-Benz decorated for a wedding outside a church" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:saturate(1.06) contrast(1.05);">
+  <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(46,26,20,0.85) 0%,rgba(14,21,18,0.35) 65%);"></div>
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 32px 48px;width:100%;box-sizing:border-box;">
+    <div style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-300);margin-bottom:10px;">Idealgreen Classic Cars</div>
+    <h1 style="font:600 2.75rem/1.1 var(--font-display);color:#fff;margin:0 0 14px;max-width:620px;">Chegue como o dia merece começar</h1>
+    <p style="font:var(--text-body-lg);color:var(--stone-100);max-width:520px;margin:0;">Casamentos, eventos privados, tours e produções — oito Mercedes-Benz clássicos, cada um com motorista.</p>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:64px 32px 32px;">
+  <h2 style="font:var(--text-h2);color:var(--text-primary);margin:0 0 28px;">O que fazemos com eles</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;">
+    <div><h3 style="font:var(--text-h4);margin:0 0 6px;color:var(--green-700);">Casamentos</h3><p style="font:var(--text-body-sm);color:var(--text-secondary);margin:0;">Da igreja ao copo-de-água, decorado nas suas cores.</p></div>
+    <div><h3 style="font:var(--text-h4);margin:0 0 6px;color:var(--green-700);">Eventos privados</h3><p style="font:var(--text-body-sm);color:var(--text-secondary);margin:0;">Aniversários, celebrações, chegadas que fazem parte da ocasião.</p></div>
+    <div><h3 style="font:var(--text-h4);margin:0 0 6px;color:var(--green-700);">Tours</h3><p style="font:var(--text-body-sm);color:var(--text-secondary);margin:0;">Uma forma mais lenta de ver Lisboa ou Sintra, no próprio carro.</p></div>
+    <div><h3 style="font:var(--text-h4);margin:0 0 6px;color:var(--green-700);">Produções</h3><p style="font:var(--text-body-sm);color:var(--text-secondary);margin:0;">Sessões fotográficas e filmagens, com o carro como parte do cenário.</p></div>
+  </div>
+</section>
+
+<section style="max-width:900px;margin:0 auto;padding:32px 32px 72px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
+    <sc-for list="{{ cars }}" as="c" hint-placeholder-count="8">
+      <div onClick="{{ c.open }}" style="cursor:pointer;">
+        <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.ClassicCarCard" title="{{ c.title }}" price="{{ c.price }}" description="{{ c.description }}" image="{{ c.image }}" hint-size="100%,380px"></x-import>
+      </div>
+    </sc-for>
+  </div>
+  <p style="font:var(--text-body-sm);color:var(--text-muted);margin-top:16px;">Lugares, opções de decoração e política de mau tempo confirmados na reserva para cada carro [CONFIRMAR]. Todos os preços são valores de partida por reserva [CONFIRMAR]. Toque num cartão para ampliar.</p>
+</section>
+
+<sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;background:rgba(14,21,18,0.92);z-index:100;display:flex;align-items:center;justify-content:center;padding:40px;">
+    <img src="{{ lightboxImage }}" alt="{{ lightboxTitle }}" style="max-width:90%;max-height:80vh;object-fit:contain;box-shadow:var(--shadow-lg);">
+    <button onClick="{{ closeLightbox }}" style="position:absolute;top:24px;right:32px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;line-height:1;">×</button>
+    <div style="position:absolute;bottom:32px;left:0;right:0;text-align:center;color:var(--stone-100);font:500 22px var(--font-display);">{{ lightboxTitle }}</div>
+  </div>
+</sc-if>
+
+<section style="background:#fff;padding:64px 32px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="font:var(--text-h2);color:var(--text-primary);margin:0 0 16px;">Aqui, sustentabilidade significa outra coisa</h2>
+    <p style="font:var(--text-body);color:var(--text-secondary);max-width:640px;margin:0;">Estes carros não são elétricos, e não os apresentamos como tal. O seu argumento é a preservação — manter um carro bem construído a andar durante sessenta anos, em vez de construir um novo. Reparáveis, cuidados, e conduzidos o suficiente para durar mais sessenta.</p>
+  </div>
+</section>
+
+<footer style="background:var(--green-900);color:var(--stone-100);padding:64px 32px 28px;border-top:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:40px;">
+    <div>
+      <img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:22px;margin-bottom:14px;display:block;">
+      <p style="font:var(--text-body-sm);color:var(--stone-300);max-width:260px;margin:0 0 16px;">A forma privada, confortável e responsável de descobrir Portugal.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Serviços</span>
+      <a href="transfers-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Transfers de Aeroporto</a>
+      <a href="tours-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Tours Privados</a>
+      <a href="tailor-made-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Viagens à Medida</a>
+      <a href="corporate-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Mobilidade Empresarial</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Empresa</span>
+      <a href="about-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Sobre Nós</a>
+      <a href="faq-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Perguntas Frequentes</a>
+      <a href="contact-pt.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Contacto</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Contacto</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">+351 912 926 688</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">info@idealgreen.pt</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">Rua Cesário Verde 35, Loja BB<br>2790-491 Queijas, Portugal</span>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:36px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font:var(--text-caption);color:var(--stone-400);">© 2026 Idealgreen · Tours e transfers privados desde 2022</div>
+</footer>
+
+<x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.FloatingContact" phone="+351912926688" whatsapp="351912926688" hint-size="60px,60px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, servicesOpen: false, lang: 'EN', lightboxOpen: false, lightboxImage: '', lightboxTitle: '' };
+  componentDidMount() {
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this._onScroll);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+  renderVals() {
+    const carsData = [
+      {title:'The Ponton', description:'1960s Mercedes-Benz sedan [CONFIRMAR model/year] · 4 lugares · o nosso carro de casamento, decoração incluída', price:'desde €250 [CONFIRMAR]', image:'assets/classic-mercedes-ponton-wedding-front.jpg'},
+      {title:'The Wedding Fleet', description:'Dois sedans Ponton a viajar juntos [CONFIRMAR model/year] · 8 seats no total · para casamentos maiores', price:'desde €450 [CONFIRMAR]', image:'assets/classic-car-wedding-fleet.jpg'},
+      {title:'The Fintail Estate', description:'1960s Mercedes-Benz estate [CONFIRMAR model/year] · 5 lugares · espaço de bagagem para produções', price:'desde €220 [CONFIRMAR]', image:'assets/classic-mercedes-wagon-grey.jpg'},
+      {title:'The Stroke Eight', description:'1970s Mercedes-Benz W114 sedan [CONFIRMAR model/year] · 4 lugares · tours na cidade e transfers', price:'desde €200 [CONFIRMAR]', image:'assets/classic-mercedes-sedan-black-street.jpg'},
+      {title:'The Coupé', description:'Mercedes-Benz coupé in blue [CONFIRMAR model/year] · 2 lugares · chegadas e produções fotográficas', price:'desde €200 [CONFIRMAR]', image:'assets/classic-mercedes-coupe-blue-side.jpg'},
+      {title:'The W123 Saloon', description:'1980s Mercedes-Benz W123 sedan [CONFIRMAR model/year] · 4 lugares · eventos e tours', price:'desde €200 [CONFIRMAR]', image:'assets/classic-mercedes-sedan-blue-front.jpg'},
+      {title:'The Touring Estate', description:'Mercedes-Benz estate [CONFIRMAR model/year] · 5 lugares · produções que precisam de espaço de carga', price:'desde €220 [CONFIRMAR]', image:'assets/classic-mercedes-wagon-rear.jpg'},
+      {title:'The Coupé, in detail', description:'Black Mercedes-Benz coupé [CONFIRMAR model/year] · 2 lugares · um favorito para grandes planos', price:'desde €200 [CONFIRMAR]', image:'assets/classic-mercedes-coupe-black-closeup.jpg'}
+    ];
+    return {
+      navStyle: `position:fixed;top:0;left:0;right:0;z-index:40;background:${this.state.scrolled ? 'rgba(14,21,18,0.92)' : 'rgba(14,21,18,0.35)'};backdrop-filter:blur(10px);transition:background 300ms ease;border-bottom:1px solid rgba(255,255,255,0.08);`,
+      toggleServices: () => this.setState(s => ({ servicesOpen: !s.servicesOpen })),
+      servicesArrow: this.state.servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      servicesOpacity: this.state.servicesOpen ? 1 : 0,
+      servicesTransform: this.state.servicesOpen ? 'translateY(0)' : 'translateY(-8px)',
+      servicesPointer: this.state.servicesOpen ? 'auto' : 'none',
+      toggleLang: () => { window.location.href = 'classic-cars.dc.html'; },
+      langLabel: 'EN',
+      toBooking: () => { window.location.href = 'contact-pt.dc.html'; },
+      cars: carsData.map(c => ({ ...c, open: () => this.setState({ lightboxOpen: true, lightboxImage: c.image, lightboxTitle: c.title }) })),
+      lightboxOpen: this.state.lightboxOpen,
+      lightboxImage: this.state.lightboxImage,
+      lightboxTitle: this.state.lightboxTitle,
+      closeLightbox: () => this.setState({ lightboxOpen: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

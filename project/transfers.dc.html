@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Private Airport Transfer Lisbon | Idealgreen</title>
+<meta name="description" content="Private Lisbon airport transfer from €40, meet & greet, door-to-door. Point-to-point routes across Portugal, priced per vehicle.">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/colors.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/typography.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/base.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/styles.css">
+<script src="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--bg-page);}
+  a{color:var(--text-link);}
+  a:hover{color:var(--text-link-hover);}
+  @keyframes ig-fade-up{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+  .ig-reveal{opacity:0;animation:ig-fade-up 700ms ease-out forwards;}
+</style>
+</helmet>
+
+<div style="font-family:var(--font-body);background:var(--bg-page);color:var(--text-primary);overflow-x:hidden;">
+
+<header style="{{ navStyle }}">
+  <div style="max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;">
+    <a href="index.dc.html" style="display:flex;align-items:center;"><img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:26px;display:block;"></a>
+    <nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
+      <a href="index.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">Home</a>
+      <div style="position:relative;">
+        <button onClick="{{ toggleServices }}" style="background:none;border:none;color:var(--stone-100);font:600 15px var(--font-body);cursor:pointer;display:flex;align-items:center;gap:6px;padding:8px 0;">Our Services<span style="font-size:14px;transform:{{ servicesArrow }};transition:transform 200ms;">▾</span></button>
+        <div style="position:absolute;top:100%;left:0;margin-top:10px;background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);min-width:260px;overflow:hidden;opacity:{{ servicesOpacity }};transform:{{ servicesTransform }};transition:opacity 200ms ease,transform 200ms ease;pointer-events:{{ servicesPointer }};z-index:60;">
+          <a href="transfers.dc.html" style="display:block;padding:14px 18px;font:600 14px var(--font-body);color:var(--green-700);text-decoration:none;border-bottom:1px solid var(--border-subtle);">Airport & Private Transfers</a>
+          <a href="tours.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Private Tours</a>
+          <a href="tailor-made.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Tailor-Made Journeys</a>
+          <a href="classic-cars.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;" style-hover="background:var(--stone-50);">Classic Cars & Events</a>
+        </div>
+      </div>
+      <a href="corporate.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">For Business</a>
+      <a href="faq.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">FAQ</a>
+      <button onClick="{{ toggleLang }}" style="background:none;border:1px solid rgba(255,255,255,0.35);border-radius:var(--radius-pill);color:var(--stone-100);font:600 12px var(--font-body);padding:6px 12px;cursor:pointer;letter-spacing:0.04em;">{{ langLabel }}</button>
+    </nav>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="md" onClick="{{ toBooking }}" hint-size="120px,44px">Book now</x-import>
+  </div>
+</header>
+
+<section style="position:relative;display:flex;align-items:flex-end;background:var(--green-900);padding-top:120px;">
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 32px 48px;width:100%;box-sizing:border-box;">
+    <div style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-300);margin-bottom:12px;">Airport & Private Transfers</div>
+    <h1 style="font:600 3.2rem/1.05 var(--font-display);color:#fff;margin:0 0 14px;max-width:640px;">Smooth landings, every time.</h1>
+    <p style="font:var(--text-body-lg);color:var(--stone-100);max-width:520px;margin:0;">Your driver waits at arrivals with your name — even if the flight is late.</p>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:64px 32px 32px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+    <div style="border:1px solid var(--border-subtle);padding:24px;background:#fff;">
+      <div style="font:600 32px var(--font-display);color:var(--green-700);">€40</div>
+      <div style="font:var(--text-body-sm);color:var(--text-secondary);margin-top:6px;">Lisbon airport to central Lisbon, per vehicle</div>
+    </div>
+    <div style="border:1px solid var(--border-subtle);padding:24px;background:#fff;">
+      <div style="font:600 32px var(--font-display);color:var(--green-700);">+€20</div>
+      <div style="font:var(--text-body-sm);color:var(--text-secondary);margin-top:6px;">Night supplement, 22:00–07:00</div>
+    </div>
+    <div style="border:1px solid var(--border-subtle);padding:24px;background:#fff;">
+      <div style="font:600 32px var(--font-display);color:var(--green-700);">€15</div>
+      <div style="font:var(--text-body-sm);color:var(--text-secondary);margin-top:6px;">Per extra hour of waiting time</div>
+    </div>
+  </div>
+  <p style="font:var(--text-body-sm);color:var(--text-muted);margin-top:16px;">Prices shown are per vehicle, not per person. Tolls are included in every transfer [CONFIRM]. Child seats are available on request [CONFIRM].</p>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:32px 32px 64px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+  <img src="assets/tesla-airport-night.jpg" alt="Tesla Model Y waiting at Lisbon airport arrivals" style="width:100%;height:320px;object-fit:cover;display:block;filter:saturate(1.08) contrast(1.05);">
+  <div>
+    <h2 style="font:var(--text-h3);margin:0 0 14px;">Meet & greet, not a shared shuttle</h2>
+    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;">
+      <li style="font:var(--text-body);color:var(--text-secondary);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--green-700);">✓</span>Your name on a sign at arrivals, no meeting point to find</li>
+      <li style="font:var(--text-body);color:var(--text-secondary);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--green-700);">✓</span>Luggage carried to the car for you</li>
+      <li style="font:var(--text-body);color:var(--text-secondary);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--green-700);">✓</span>Your flight is tracked, so a delay does not cost you a fare</li>
+      <li style="font:var(--text-body);color:var(--text-secondary);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--green-700);">✓</span>Door-to-door — hotel, villa or address, not a taxi rank</li>
+    </ul>
+  </div>
+</section>
+
+<section style="background:var(--green-900);padding:64px 32px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="font:var(--text-h2);color:#fff;margin:0 0 32px;">The right vehicle for the trip</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);overflow:hidden;">
+        <img src="assets/fleet-vans-grilles.jpg" alt="Mercedes V-Class van" style="width:100%;height:200px;object-fit:cover;display:block;filter:saturate(1.08) contrast(1.05);">
+        <div style="padding:20px;">
+          <h3 style="font:var(--text-h4);color:#fff;margin:0 0 6px;">Mercedes V-Class</h3>
+          <p style="font:var(--text-body-sm);color:var(--stone-200);margin:0;">Up to 7 passengers with luggage. Groups and families.</p>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);overflow:hidden;">
+        <img src="assets/fleet-tesla-hotel-day.jpg" alt="Tesla Model Y" style="width:100%;height:200px;object-fit:cover;display:block;filter:saturate(1.08) contrast(1.05);">
+        <div style="padding:20px;">
+          <h3 style="font:var(--text-h4);color:#fff;margin:0 0 6px;">Tesla Model Y</h3>
+          <p style="font:var(--text-body-sm);color:var(--stone-200);margin:0;">Up to 4 passengers. Electric, quiet, business-ready.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:64px 32px 32px;">
+  <h2 style="font:var(--text-h2);margin:0 0 8px;">Frequent routes</h2>
+  <p style="font:var(--text-body-lg);color:var(--text-secondary);margin:0 0 28px;">Booked most often, from Lisbon.</p>
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.RouteCard" dc-props="{{ fromLisbon }}" to="Porto" price="€370" duration="3h" on-select="{{ toBooking }}" hint-size="100%,74px"></x-import>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.RouteCard" dc-props="{{ fromLisbon }}" to="Faro" price="€315" duration="2h30" on-select="{{ toBooking }}" hint-size="100%,74px"></x-import>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.RouteCard" dc-props="{{ fromLisbon }}" to="Portimão" price="€315" duration="2h40" on-select="{{ toBooking }}" hint-size="100%,74px"></x-import>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.RouteCard" dc-props="{{ fromLisbon }}" to="Seville" price="€420" duration="3h30" on-select="{{ toBooking }}" hint-size="100%,74px"></x-import>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:32px 32px 80px;">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:20px;">
+    <div>
+      <h2 style="font:var(--text-h2);margin:0 0 8px;">All routes from Lisbon</h2>
+      <p style="font:var(--text-body-lg);color:var(--text-secondary);margin:0;">Total price per vehicle. Tap a route for vehicle options.</p>
+    </div>
+    <input value="{{ search }}" onChange="{{ setSearch }}" placeholder="Search a destination…" style="border:1.5px solid var(--border-default);padding:12px 16px;font:var(--text-body);min-width:220px;">
+  </div>
+  <div style="border:1px solid var(--border-subtle);overflow:hidden;background:#fff;">
+    <sc-for list="{{ filteredRoutes }}" as="r" hint-placeholder-count="15">
+      <div style="border-bottom:1px solid var(--border-subtle);">
+        <button onClick="{{ r.toggle }}" style="width:100%;background:none;border:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;cursor:pointer;text-align:left;" style-hover="background:var(--stone-50);">
+          <span style="font:600 16px var(--font-body);color:var(--text-primary);min-width:200px;">{{ r.name }}</span>
+          <span style="font:600 18px var(--font-display);color:var(--green-700);">€{{ r.price }}</span>
+          <span style="font-size:12px;color:var(--text-muted);transform:{{ r.arrow }};transition:transform 200ms;">▾</span>
+        </button>
+        <sc-if value="{{ r.open }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 24px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+            <span style="font:var(--text-body-sm);color:var(--text-secondary);">{{ r.vehicleNote }}</span>
+            <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="secondary" size="sm" onClick="{{ toBooking }}" hint-size="150px,36px">Book this route</x-import>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<footer style="background:var(--green-900);color:var(--stone-100);padding:64px 32px 28px;border-top:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:40px;">
+    <div>
+      <img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:22px;margin-bottom:14px;display:block;">
+      <p style="font:var(--text-body-sm);color:var(--stone-300);max-width:260px;margin:0 0 16px;">The private, comfortable and responsible way to discover Portugal.</p>
+      <div style="display:flex;gap:16px;">
+        <a href="https://instagram.com/idealgreen_tours" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Instagram</a>
+        <a href="#" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">LinkedIn</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Popular routes</span>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisbon–Porto · €370</a>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisbon–Faro · €315</a>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisbon–Sintra · €45</a>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisbon–Évora · €190</a>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisbon–Fátima · €165</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Company</span>
+      <a href="tours.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Private Tours</a>
+      <a href="tailor-made.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Tailor-Made Journeys</a>
+      <a href="corporate.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Corporate Mobility</a>
+      <a href="classic-cars.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Classic Cars & Events</a>
+      <a href="about.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">About Us</a>
+      <a href="faq.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">FAQ</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Contact</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">+351 912 926 688</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">info@idealgreen.pt</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">Rua Cesário Verde 35, Loja BB<br>2790-491 Queijas, Portugal</span>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:36px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font:var(--text-caption);color:var(--stone-400);">
+    <span>© 2026 Idealgreen · Private tours & transfers since 2022</span>
+    <span>Queijas, Oeiras · Lisbon, Portugal</span>
+  </div>
+</footer>
+
+<x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.FloatingContact" phone="+351912926688" whatsapp="351912926688" hint-size="60px,60px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, servicesOpen: false, lang: 'EN', search: '', openRoute: null };
+
+  componentDidMount() {
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this._onScroll);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+
+  renderVals() {
+    const go = () => { window.location.href = 'contact.dc.html'; };
+    const raw = [
+      {name:'Sintra / Cascais', price:45, vehicleNote:'Tesla Model Y (up to 4) or Mercedes V-Class (up to 7) [CONFIRM capacity]'},
+      {name:'Colares / Guincho', price:55, vehicleNote:'Tesla Model Y (up to 4) or Mercedes V-Class (up to 7) [CONFIRM capacity]'},
+      {name:'Ericeira / Mafra', price:90, vehicleNote:'Mercedes V-Class recommended for luggage [CONFIRM capacity]'},
+      {name:'Setúbal / Torres Vedras', price:95, vehicleNote:'Tesla Model Y or Mercedes V-Class [CONFIRM capacity]'},
+      {name:'Óbidos / Peniche', price:135, vehicleNote:'Mercedes V-Class recommended [CONFIRM capacity]'},
+      {name:'Tróia / Comporta', price:165, vehicleNote:'Tesla Model Y or Mercedes V-Class [CONFIRM capacity]'},
+      {name:'Fátima / Nazaré', price:165, vehicleNote:'Mercedes V-Class recommended [CONFIRM capacity]'},
+      {name:'Leiria / Tomar', price:190, vehicleNote:'Tesla Model Y or Mercedes V-Class [CONFIRM capacity]'},
+      {name:'Évora', price:190, vehicleNote:'Tesla Model Y or Mercedes V-Class [CONFIRM capacity]'},
+      {name:'Beja', price:210, vehicleNote:'Mercedes V-Class recommended [CONFIRM capacity]'},
+      {name:'Coimbra', price:250, vehicleNote:'Tesla Model Y or Mercedes V-Class [CONFIRM capacity]'},
+      {name:'Figueira da Foz', price:250, vehicleNote:'Tesla Model Y or Mercedes V-Class [CONFIRM capacity]'},
+      {name:'Portimão / Albufeira', price:315, vehicleNote:'Mercedes V-Class recommended for the distance [CONFIRM capacity]'},
+      {name:'Faro', price:315, vehicleNote:'Tesla Model Y or Mercedes V-Class [CONFIRM capacity]'},
+      {name:'Porto', price:370, vehicleNote:'Tesla Model Y or Mercedes V-Class [CONFIRM capacity]'}
+    ];
+    const filtered = raw.filter(r => r.name.toLowerCase().includes(this.state.search.toLowerCase()));
+    return {
+      navStyle: `position:fixed;top:0;left:0;right:0;z-index:40;background:${this.state.scrolled ? 'rgba(14,21,18,0.92)' : 'rgba(14,21,18,0.35)'};backdrop-filter:blur(10px);transition:background 300ms ease;border-bottom:1px solid rgba(255,255,255,0.08);`,
+      toggleServices: () => this.setState(s => ({ servicesOpen: !s.servicesOpen })),
+      servicesArrow: this.state.servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      servicesOpacity: this.state.servicesOpen ? 1 : 0,
+      servicesTransform: this.state.servicesOpen ? 'translateY(0)' : 'translateY(-8px)',
+      servicesPointer: this.state.servicesOpen ? 'auto' : 'none',
+      toggleLang: () => { window.location.href = 'transfers-pt.dc.html'; },
+      langLabel: 'PT',
+      toBooking: go,
+      fromLisbon: { from: 'Lisbon' },
+      search: this.state.search,
+      setSearch: (e) => this.setState({ search: e.target.value }),
+      filteredRoutes: filtered.map((r, i) => ({
+        ...r,
+        open: this.state.openRoute === i,
+        arrow: this.state.openRoute === i ? 'rotate(180deg)' : 'rotate(0deg)',
+        toggle: () => this.setState(s => ({ openRoute: s.openRoute === i ? null : i }))
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

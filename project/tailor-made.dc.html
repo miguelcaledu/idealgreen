@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Tailor-Made Journeys Across Portugal | Idealgreen</title>
+<meta name="description" content="Multi-day private journeys across Portugal — food routes, wine country, the Atlantic coast and family trips. Request a proposal built around your dates.">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/colors.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/typography.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/base.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/styles.css">
+<script src="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--bg-page);}
+  a{color:var(--text-link);}
+  a:hover{color:var(--text-link-hover);}
+  @keyframes ig-slide-in{from{opacity:0;transform:translateX(24px);}to{opacity:1;transform:translateX(0);}}
+  .ig-step{animation:ig-slide-in 320ms ease-out both;}
+</style>
+</helmet>
+
+<div style="font-family:var(--font-body);background:var(--bg-page);color:var(--text-primary);overflow-x:hidden;">
+
+<header style="{{ navStyle }}">
+  <div style="max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;">
+    <a href="index.dc.html" style="display:flex;align-items:center;"><img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:26px;display:block;"></a>
+    <nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
+      <a href="index.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">Home</a>
+      <div style="position:relative;">
+        <button onClick="{{ toggleServices }}" style="background:none;border:none;color:var(--stone-100);font:600 15px var(--font-body);cursor:pointer;display:flex;align-items:center;gap:6px;padding:8px 0;">Our Services<span style="font-size:14px;transform:{{ servicesArrow }};transition:transform 200ms;">▾</span></button>
+        <div style="position:absolute;top:100%;left:0;margin-top:10px;background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);min-width:260px;overflow:hidden;opacity:{{ servicesOpacity }};transform:{{ servicesTransform }};transition:opacity 200ms ease,transform 200ms ease;pointer-events:{{ servicesPointer }};z-index:60;">
+          <a href="transfers.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Airport & Private Transfers</a>
+          <a href="tours.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Private Tours</a>
+          <a href="tailor-made.dc.html" style="display:block;padding:14px 18px;font:600 14px var(--font-body);color:var(--green-700);text-decoration:none;border-bottom:1px solid var(--border-subtle);">Tailor-Made Journeys</a>
+          <a href="classic-cars.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;" style-hover="background:var(--stone-50);">Classic Cars & Events</a>
+        </div>
+      </div>
+      <a href="corporate.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">For Business</a>
+      <a href="faq.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">FAQ</a>
+      <button onClick="{{ toggleLang }}" style="background:none;border:1px solid rgba(255,255,255,0.35);border-radius:var(--radius-pill);color:var(--stone-100);font:600 12px var(--font-body);padding:6px 12px;cursor:pointer;letter-spacing:0.04em;">{{ langLabel }}</button>
+    </nav>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="md" onClick="{{ toBooking }}" hint-size="120px,44px">Book now</x-import>
+  </div>
+</header>
+
+<section style="position:relative;display:flex;align-items:flex-end;background:var(--green-900);padding-top:120px;">
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 32px 48px;width:100%;box-sizing:border-box;">
+    <div style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-300);margin-bottom:12px;">Tailor-Made Journeys</div>
+    <h1 style="font:600 3.2rem/1.05 var(--font-display);color:#fff;margin:0 0 14px;max-width:640px;">Your Portugal, drawn from scratch.</h1>
+    <p style="font:var(--text-body-lg);color:var(--stone-100);max-width:600px;margin:0;">Multi-day routes built around your dates, your interests and who is travelling with you.</p>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:56px 32px 24px;">
+  <p style="font:var(--text-body-lg);color:var(--text-secondary);margin:0;max-width:640px;">Multi-day routes built around your dates, your interests and who is travelling with you — not a fixed departure.</p>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:24px 32px 72px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+    <div style="border:1px solid var(--border-subtle);overflow:hidden;background:#fff;box-shadow:var(--shadow-sm);">
+      <img src="assets/guests-toast-vineyard.jpg" alt="Food route through Lisbon and the Alentejo" style="width:100%;height:180px;object-fit:cover;display:block;filter:saturate(1.06) contrast(1.04);">
+      <div style="padding:22px;">
+        <div style="font:var(--text-body-sm);color:var(--green-700);font-weight:600;margin-bottom:4px;">3 days</div>
+        <h3 style="font:var(--text-h4);margin:0 0 8px;">Food route, Lisbon to Alentejo</h3>
+        <p style="font:var(--text-body-sm);color:var(--text-secondary);margin:0;">Market stalls in Lisbon, a cheese producer near Évora, and a long lunch on an Alentejo farm.</p>
+      </div>
+    </div>
+    <div style="border:1px solid var(--border-subtle);overflow:hidden;background:#fff;box-shadow:var(--shadow-sm);">
+      <img src="assets/picnic-mateus-viewpoint.jpg" alt="Wine journey from Lisbon to the Douro" style="width:100%;height:180px;object-fit:cover;display:block;filter:saturate(1.06) contrast(1.04);">
+      <div style="padding:22px;">
+        <div style="font:var(--text-body-sm);color:var(--green-700);font-weight:600;margin-bottom:4px;">4 days</div>
+        <h3 style="font:var(--text-h4);margin:0 0 8px;">Wine journey, Lisbon to Douro</h3>
+        <p style="font:var(--text-body-sm);color:var(--text-secondary);margin:0;">Coimbra and Porto on the way north, then two nights among the Douro terraces.</p>
+      </div>
+    </div>
+    <div style="border:1px solid var(--border-subtle);overflow:hidden;background:#fff;box-shadow:var(--shadow-sm);">
+      <img src="assets/landscape-cliff-alt.jpg" alt="Atlantic coast road trip" style="width:100%;height:180px;object-fit:cover;display:block;filter:saturate(1.06) contrast(1.04);">
+      <div style="padding:22px;">
+        <div style="font:var(--text-body-sm);color:var(--green-700);font-weight:600;margin-bottom:4px;">5 days</div>
+        <h3 style="font:var(--text-h4);margin:0 0 8px;">Atlantic Coast</h3>
+        <p style="font:var(--text-body-sm);color:var(--text-secondary);margin:0;">Ericeira, Nazaré, Aveiro and the Costa Verde, following the coast road north.</p>
+      </div>
+    </div>
+    <div style="border:1px solid var(--border-subtle);overflow:hidden;background:#fff;box-shadow:var(--shadow-sm);">
+      <img src="assets/guests-group-toast.jpg" alt="Portugal for families itinerary" style="width:100%;height:180px;object-fit:cover;display:block;filter:saturate(1.06) contrast(1.04);">
+      <div style="padding:22px;">
+        <div style="font:var(--text-body-sm);color:var(--green-700);font-weight:600;margin-bottom:4px;">4 days</div>
+        <h3 style="font:var(--text-h4);margin:0 0 8px;">Portugal for families</h3>
+        <p style="font:var(--text-body-sm);color:var(--text-secondary);margin:0;">Sintra, the Óbidos lagoon and a beach day, paced for children and grandparents alike.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-surface-sunken);padding:72px 32px;">
+  <div style="max-width:640px;margin:0 auto;">
+    <h2 style="font:var(--text-h2);margin:0 0 8px;">Request a proposal</h2>
+    <p style="font:var(--text-body);color:var(--text-secondary);margin:0 0 32px;">Tell us the shape of the trip — we reply with a day-by-day plan and a total price per vehicle.</p>
+
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:32px;">
+      <sc-for list="{{ progressSteps }}" as="p" hint-placeholder-count="4">
+        <div style="flex:1;height:4px;background:{{ p.color }};transition:background 300ms;"></div>
+      </sc-for>
+    </div>
+
+    <div class="ig-step">
+      <sc-if value="{{ isStep0 }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--text-muted);">Step 1 of 4 — Dates</div>
+          <dc-import name="DatePicker" label="Preferred start date" lang="en" hint-size="100%,70px"></dc-import>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--text-muted);">Step 2 of 4 — Group</div>
+          <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Select" label="Group size" options="{{ groupSizeOptions }}" value="{{ groupSize }}" on-change="{{ setGroupSize }}" placeholder="Select group size" hint-size="100%,70px"></x-import>
+          <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Mobility needs (optional)" placeholder="Wheelchair access, reduced walking, etc." hint-size="100%,70px"></x-import>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--text-muted);">Step 3 of 4 — Interests</div>
+          <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Interests" placeholder="Food, wine, history, beaches..." hint-size="100%,70px"></x-import>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--text-muted);">Step 4 of 4 — Contact</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Full name" placeholder="Your name" hint-size="100%,70px"></x-import>
+            <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Input" label="Email" placeholder="you@email.com" type="email" hint-size="100%,70px"></x-import>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:32px;">
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="ghost" size="md" onClick="{{ prevStep }}" disabled="{{ isStep0 }}" hint-size="100px,44px">Back</x-import>
+      <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="md" onClick="{{ nextStep }}" hint-size="180px,44px">{{ nextLabel }}</x-import>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--green-900);color:var(--stone-100);padding:64px 32px 28px;border-top:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:40px;">
+    <div>
+      <img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:22px;margin-bottom:14px;display:block;">
+      <p style="font:var(--text-body-sm);color:var(--stone-300);max-width:260px;margin:0 0 16px;">The private, comfortable and responsible way to discover Portugal.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Services</span>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Airport Transfers</a>
+      <a href="tours.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Private Tours</a>
+      <a href="corporate.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Corporate Mobility</a>
+      <a href="classic-cars.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Classic Cars & Events</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Company</span>
+      <a href="about.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">About Us</a>
+      <a href="faq.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">FAQ</a>
+      <a href="contact.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Contact</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Contact</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">+351 912 926 688</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">info@idealgreen.pt</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">Rua Cesário Verde 35, Loja BB<br>2790-491 Queijas, Portugal</span>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:36px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font:var(--text-caption);color:var(--stone-400);">© 2026 Idealgreen · Private tours & transfers since 2022</div>
+</footer>
+
+<x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.FloatingContact" phone="+351912926688" whatsapp="351912926688" hint-size="60px,60px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, servicesOpen: false, lang: 'EN', step: 0, groupSize: '' };
+
+  componentDidMount() {
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this._onScroll);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+
+  renderVals() {
+    const go = () => { window.location.href = 'contact.dc.html'; };
+    const step = this.state.step;
+    return {
+      navStyle: `position:fixed;top:0;left:0;right:0;z-index:40;background:${this.state.scrolled ? 'rgba(14,21,18,0.92)' : 'rgba(14,21,18,0.35)'};backdrop-filter:blur(10px);transition:background 300ms ease;border-bottom:1px solid rgba(255,255,255,0.08);`,
+      toggleServices: () => this.setState(s => ({ servicesOpen: !s.servicesOpen })),
+      servicesArrow: this.state.servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      servicesOpacity: this.state.servicesOpen ? 1 : 0,
+      servicesTransform: this.state.servicesOpen ? 'translateY(0)' : 'translateY(-8px)',
+      servicesPointer: this.state.servicesOpen ? 'auto' : 'none',
+      toggleLang: () => { window.location.href = 'tailor-made-pt.dc.html'; },
+      langLabel: 'PT',
+      toBooking: go,
+      progressSteps: [0, 1, 2, 3].map(i => ({ color: i <= step ? 'var(--green-700)' : 'var(--border-subtle)' })),
+      step,
+      isStep0: step === 0, isStep1: step === 1, isStep2: step === 2, isStep3: step === 3,
+      groupSize: this.state.groupSize,
+      setGroupSize: (v) => this.setState({ groupSize: v }),
+      groupSizeOptions: [
+        { value: '2', label: '2 people' },
+        { value: '3-4', label: '3–4 people' },
+        { value: '5-7', label: '5–7 people' },
+        { value: '8+', label: '8 or more' }
+      ],
+      nextLabel: step === 3 ? 'Request a proposal' : 'Continue',
+      prevStep: () => this.setState(s => ({ step: Math.max(0, s.step - 1) })),
+      nextStep: () => { if (step === 3) { go(); } else { this.setState(s => ({ step: Math.min(3, s.step + 1) })); } }
+    };
+  }
+}
+</script>
+</body>
+</html>

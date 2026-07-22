@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Private Tours in Portugal | Sintra, Fátima, Évora, Algarve | Idealgreen</title>
+<meta name="description" content="Private Sintra tours, Fátima day trips, Évora and Algarve tours by car — total price per vehicle, knowledgeable drivers, flexible itineraries.">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/colors.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/typography.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/base.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/styles.css">
+<script src="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--bg-page);}
+  a{color:var(--text-link);}
+  a:hover{color:var(--text-link-hover);}
+  @keyframes ig-fade-up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+  .ig-card{animation:ig-fade-up 500ms ease-out both;}
+</style>
+</helmet>
+
+<div style="font-family:var(--font-body);background:var(--bg-page);color:var(--text-primary);overflow-x:hidden;">
+
+<header style="{{ navStyle }}">
+  <div style="max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;">
+    <a href="index.dc.html" style="display:flex;align-items:center;"><img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:26px;display:block;"></a>
+    <nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
+      <a href="index.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">Home</a>
+      <div style="position:relative;">
+        <button onClick="{{ toggleServices }}" style="background:none;border:none;color:var(--stone-100);font:600 15px var(--font-body);cursor:pointer;display:flex;align-items:center;gap:6px;padding:8px 0;">Our Services<span style="font-size:14px;transform:{{ servicesArrow }};transition:transform 200ms;">▾</span></button>
+        <div style="position:absolute;top:100%;left:0;margin-top:10px;background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);min-width:260px;overflow:hidden;opacity:{{ servicesOpacity }};transform:{{ servicesTransform }};transition:opacity 200ms ease,transform 200ms ease;pointer-events:{{ servicesPointer }};z-index:60;">
+          <a href="transfers.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Airport & Private Transfers</a>
+          <a href="tours.dc.html" style="display:block;padding:14px 18px;font:600 14px var(--font-body);color:var(--green-700);text-decoration:none;border-bottom:1px solid var(--border-subtle);">Private Tours</a>
+          <a href="tailor-made.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Tailor-Made Journeys</a>
+          <a href="classic-cars.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;" style-hover="background:var(--stone-50);">Classic Cars & Events</a>
+        </div>
+      </div>
+      <a href="corporate.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">For Business</a>
+      <a href="faq.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">FAQ</a>
+      <button onClick="{{ toggleLang }}" style="background:none;border:1px solid rgba(255,255,255,0.35);border-radius:var(--radius-pill);color:var(--stone-100);font:600 12px var(--font-body);padding:6px 12px;cursor:pointer;letter-spacing:0.04em;">{{ langLabel }}</button>
+    </nav>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="md" onClick="{{ toBooking }}" hint-size="120px,44px">Book now</x-import>
+  </div>
+</header>
+
+<section style="position:relative;display:flex;align-items:flex-end;background:var(--green-900);padding-top:120px;">
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 32px 48px;width:100%;box-sizing:border-box;">
+    <div style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-300);margin-bottom:12px;">Private Tours</div>
+    <h1 style="font:600 3.2rem/1.05 var(--font-display);color:#fff;margin:0 0 14px;max-width:640px;">Portugal, at your pace.</h1>
+    <p style="font:var(--text-body-lg);color:var(--stone-100);max-width:600px;margin:0;">One vehicle, one driver, your schedule. Prices are total per vehicle, not per person.</p>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:48px 32px 8px;">
+  <p style="font:var(--text-body-sm);color:var(--text-muted);margin:0 0 24px;max-width:640px;">Our drivers are knowledgeable about the places you visit — licensed guiding is a separate, regulated profession in Portugal, and can be arranged on request.</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+      <button onClick="{{ f.onClick }}" style="padding:10px 18px;border:1.5px solid {{ f.border }};background:{{ f.bg }};color:{{ f.color }};border-radius:var(--radius-pill);font:600 14px var(--font-body);cursor:pointer;transition:all 200ms;">{{ f.label }}</button>
+    </sc-for>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:24px 32px 80px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+    <sc-for list="{{ visibleTours }}" as="t" hint-placeholder-count="12">
+      <div class="ig-card">
+        <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.PriceCard" title="{{ t.title }}" price="{{ t.price }}" duration="{{ t.duration }}" max-passengers="{{ t.maxPassengers }}" vehicle="{{ t.vehicle }}" image="{{ t.image }}" included="{{ t.included }}" on-select="{{ t.onSelect }}" hint-size="100%,430px"></x-import>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<footer style="background:var(--green-900);color:var(--stone-100);padding:64px 32px 28px;border-top:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:40px;">
+    <div>
+      <img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:22px;margin-bottom:14px;display:block;">
+      <p style="font:var(--text-body-sm);color:var(--stone-300);max-width:260px;margin:0 0 16px;">The private, comfortable and responsible way to discover Portugal.</p>
+      <div style="display:flex;gap:16px;">
+        <a href="https://instagram.com/idealgreen_tours" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Instagram</a>
+        <a href="#" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">LinkedIn</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Popular routes</span>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisbon–Porto · €370</a>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisbon–Faro · €315</a>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisbon–Sintra · €45</a>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Lisbon–Évora · €190</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Company</span>
+      <a href="tailor-made.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Tailor-Made Journeys</a>
+      <a href="corporate.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Corporate Mobility</a>
+      <a href="classic-cars.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Classic Cars & Events</a>
+      <a href="about.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">About Us</a>
+      <a href="faq.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">FAQ</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Contact</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">+351 912 926 688</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">info@idealgreen.pt</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">Rua Cesário Verde 35, Loja BB<br>2790-491 Queijas, Portugal</span>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:36px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font:var(--text-caption);color:var(--stone-400);">
+    <span>© 2026 Idealgreen · Private tours & transfers since 2022</span>
+    <span>Queijas, Oeiras · Lisbon, Portugal</span>
+  </div>
+</footer>
+
+<x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.FloatingContact" phone="+351912926688" whatsapp="351912926688" hint-size="60px,60px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, servicesOpen: false, lang: 'EN', filter: 'all' };
+
+  componentDidMount() {
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this._onScroll);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+
+  renderVals() {
+    const go = (url) => () => { window.location.href = url; };
+    const included = ['Driver, vehicle, fuel & tolls', 'Flexible itinerary'];
+    const all = [
+      {title:'Lisbon, half day', price:'€125', duration:'4 hours', maxPassengers:7, vehicle:'Mercedes V-Class', image:'assets/fleet-tesla-hotel-day.jpg', included, onSelect: go('contact.dc.html'), cat:'half'},
+      {title:'Lisbon, full day', price:'€165', duration:'8 hours', maxPassengers:4, vehicle:'Tesla Model Y', image:'assets/fleet-tesla-iberostar.jpg', included, onSelect: go('tour-lisbon-full-day.dc.html'), cat:'full'},
+      {title:'Sintra, half day', price:'€130', duration:'4 hours', maxPassengers:7, vehicle:'Mercedes V-Class', image:'assets/fleet-vans-pines.jpg', included, onSelect: go('contact.dc.html'), cat:'half'},
+      {title:'Sintra, full day', price:'€180', duration:'8 hours', maxPassengers:4, vehicle:'Tesla Model Y', image:'assets/tesla-sintra-pena-palace.jpg', included, onSelect: go('tour-sintra-full-day.dc.html'), cat:'full'},
+      {title:'Fátima, half day', price:'€220', duration:'5 hours', maxPassengers:7, vehicle:'Mercedes V-Class', image:'assets/guests-couple-guide.jpg', included, onSelect: go('contact.dc.html'), cat:'half'},
+      {title:'Fátima, full day', price:'€300', duration:'8 hours', maxPassengers:7, vehicle:'Mercedes V-Class', image:'assets/guests-toast-vineyard.jpg', included, onSelect: go('tour-fatima-full-day.dc.html'), cat:'full'},
+      {title:'Nazaré & Óbidos', price:'€310', duration:'8 hours', maxPassengers:7, vehicle:'Mercedes V-Class', image:'assets/guests-group-toast.jpg', included, onSelect: go('contact.dc.html'), cat:'multi'},
+      {title:'Mafra & Nazaré', price:'€310', duration:'8 hours', maxPassengers:7, vehicle:'Mercedes V-Class', image:'assets/picnic-mateus-viewpoint.jpg', included, onSelect: go('contact.dc.html'), cat:'multi'},
+      {title:'Évora', price:'€300', duration:'8 hours', maxPassengers:4, vehicle:'Tesla Model Y', image:'assets/fleet-vans-service.jpg', included, onSelect: go('contact.dc.html'), cat:'full'},
+      {title:'Porto', price:'€500', duration:'10 hours', maxPassengers:7, vehicle:'Mercedes V-Class', image:'assets/fleet-convoy.jpg', included, onSelect: go('tour-porto.dc.html'), cat:'multi'},
+      {title:'Algarve: Portimão & Lagos', price:'€500', duration:'10 hours', maxPassengers:7, vehicle:'Mercedes V-Class', image:'assets/service-picnic-detail.jpg', included, onSelect: go('contact.dc.html'), cat:'multi'},
+      {title:'Algarve: Estói & Tavira', price:'€500', duration:'10 hours', maxPassengers:7, vehicle:'Mercedes V-Class', image:'assets/landscape-cliff-alt.jpg', included, onSelect: go('contact.dc.html'), cat:'multi'}
+    ];
+    const visible = this.state.filter === 'all' ? all : all.filter(t => t.cat === this.state.filter);
+    const filterDef = (key, label) => ({
+      label,
+      onClick: () => this.setState({ filter: key }),
+      bg: this.state.filter === key ? 'var(--green-700)' : 'transparent',
+      color: this.state.filter === key ? '#fff' : 'var(--text-primary)',
+      border: this.state.filter === key ? 'var(--green-700)' : 'var(--border-default)'
+    });
+    return {
+      navStyle: `position:fixed;top:0;left:0;right:0;z-index:40;background:${this.state.scrolled ? 'rgba(14,21,18,0.92)' : 'rgba(14,21,18,0.35)'};backdrop-filter:blur(10px);transition:background 300ms ease;border-bottom:1px solid rgba(255,255,255,0.08);`,
+      toggleServices: () => this.setState(s => ({ servicesOpen: !s.servicesOpen })),
+      servicesArrow: this.state.servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      servicesOpacity: this.state.servicesOpen ? 1 : 0,
+      servicesTransform: this.state.servicesOpen ? 'translateY(0)' : 'translateY(-8px)',
+      servicesPointer: this.state.servicesOpen ? 'auto' : 'none',
+      toggleLang: () => { window.location.href = 'tours-pt.dc.html'; },
+      langLabel: 'PT',
+      toBooking: go('contact.dc.html'),
+      filters: [filterDef('all', 'All'), filterDef('half', 'Half day'), filterDef('full', 'Full day'), filterDef('multi', 'Multi-region')],
+      visibleTours: visible
+    };
+  }
+}
+</script>
+</body>
+</html>

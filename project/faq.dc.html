@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>FAQ | Idealgreen Private Transfers & Tours</title>
+<meta name="description" content="Answers on flight delays, child seats, luggage, pets, payment, cancellation, accessibility and more for Idealgreen private transfers and tours.">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/colors.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/typography.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/tokens/base.css">
+<link rel="stylesheet" href="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/styles.css">
+<script src="_ds/idealgreen-design-system-e8e9f307-59ac-416d-8f85-b738ad3c6313/_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--bg-page);}
+  a{color:var(--text-link);}
+  a:hover{color:var(--text-link-hover);}
+</style>
+</helmet>
+
+<div style="font-family:var(--font-body);background:var(--bg-page);color:var(--text-primary);overflow-x:hidden;">
+
+<header style="{{ navStyle }}">
+  <div style="max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;">
+    <a href="index.dc.html" style="display:flex;align-items:center;"><img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:26px;display:block;"></a>
+    <nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
+      <a href="index.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">Home</a>
+      <div style="position:relative;">
+        <button onClick="{{ toggleServices }}" style="background:none;border:none;color:var(--stone-100);font:500 15px var(--font-body);cursor:pointer;display:flex;align-items:center;gap:6px;padding:8px 0;">Our Services<span style="font-size:14px;transform:{{ servicesArrow }};transition:transform 200ms;">▾</span></button>
+        <div style="position:absolute;top:100%;left:0;margin-top:10px;background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);min-width:260px;overflow:hidden;opacity:{{ servicesOpacity }};transform:{{ servicesTransform }};transition:opacity 200ms ease,transform 200ms ease;pointer-events:{{ servicesPointer }};z-index:60;">
+          <a href="transfers.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Airport & Private Transfers</a>
+          <a href="tours.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Private Tours</a>
+          <a href="tailor-made.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-subtle);" style-hover="background:var(--stone-50);">Tailor-Made Journeys</a>
+          <a href="classic-cars.dc.html" style="display:block;padding:14px 18px;font:500 14px var(--font-body);color:var(--text-primary);text-decoration:none;" style-hover="background:var(--stone-50);">Classic Cars & Events</a>
+        </div>
+      </div>
+      <a href="corporate.dc.html" style="font:500 15px var(--font-body);color:var(--stone-100);text-decoration:none;" style-hover="color:var(--green-300);">For Business</a>
+      <a href="faq.dc.html" style="font:600 15px var(--font-body);color:var(--green-300);text-decoration:none;">FAQ</a>
+      <button onClick="{{ toggleLang }}" style="background:none;border:1px solid rgba(255,255,255,0.35);border-radius:var(--radius-pill);color:var(--stone-100);font:600 12px var(--font-body);padding:6px 12px;cursor:pointer;letter-spacing:0.04em;">{{ langLabel }}</button>
+    </nav>
+    <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.Button" variant="primary" size="md" onClick="{{ toBooking }}" hint-size="120px,44px">Book now</x-import>
+  </div>
+</header>
+
+<section style="position:relative;height:260px;display:flex;align-items:center;background:var(--green-900);">
+  <div style="max-width:1280px;margin:0 auto;padding:70px 32px 0;width:100%;box-sizing:border-box;">
+    <h1 style="font:600 2.5rem/1.1 var(--font-display);color:#fff;margin:0 0 10px;">Frequently asked questions</h1>
+    <p style="font:var(--text-body-lg);color:var(--stone-200);margin:0;">If your question isn't here, message us on WhatsApp and we answer directly.</p>
+  </div>
+</section>
+
+<section style="max-width:800px;margin:0 auto;padding:56px 32px 80px;">
+  <x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.FAQAccordion" items="{{ faqItems }}" hint-size="100%,900px"></x-import>
+</section>
+
+<footer style="background:var(--green-900);color:var(--stone-100);padding:64px 32px 28px;border-top:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:40px;">
+    <div>
+      <img src="assets/logo-wordmark-white.png" alt="Idealgreen" style="height:22px;margin-bottom:14px;display:block;">
+      <p style="font:var(--text-body-sm);color:var(--stone-300);max-width:260px;margin:0 0 16px;">The private, comfortable and responsible way to discover Portugal.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Services</span>
+      <a href="transfers.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Airport Transfers</a>
+      <a href="tours.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Private Tours</a>
+      <a href="corporate.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Corporate Mobility</a>
+      <a href="classic-cars.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Classic Cars & Events</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Company</span>
+      <a href="about.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">About Us</a>
+      <a href="faq.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">FAQ</a>
+      <a href="contact.dc.html" style="font:var(--text-body-sm);color:var(--stone-200);text-decoration:none;">Contact</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font:var(--text-caption);letter-spacing:var(--tracking-caption);text-transform:uppercase;color:var(--green-400);margin-bottom:2px;">Contact</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">+351 912 926 688</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">info@idealgreen.pt</span>
+      <span style="font:var(--text-body-sm);color:var(--stone-200);">Rua Cesário Verde 35, Loja BB<br>2790-491 Queijas, Portugal</span>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:36px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font:var(--text-caption);color:var(--stone-400);">© 2026 Idealgreen · Private tours & transfers since 2022</div>
+</footer>
+
+<x-import component-from-global-scope="IdealgreenDesignSystem_e8e9f3.FloatingContact" phone="+351912926688" whatsapp="351912926688" hint-size="60px,60px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, servicesOpen: false, lang: 'EN' };
+  componentDidMount() {
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    window.addEventListener('scroll', this._onScroll);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+  renderVals() {
+    return {
+      navStyle: `position:fixed;top:0;left:0;right:0;z-index:40;background:${this.state.scrolled ? 'rgba(14,21,18,0.92)' : 'rgba(14,21,18,0.35)'};backdrop-filter:blur(10px);transition:background 300ms ease;border-bottom:1px solid rgba(255,255,255,0.08);`,
+      toggleServices: () => this.setState(s => ({ servicesOpen: !s.servicesOpen })),
+      servicesArrow: this.state.servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      servicesOpacity: this.state.servicesOpen ? 1 : 0,
+      servicesTransform: this.state.servicesOpen ? 'translateY(0)' : 'translateY(-8px)',
+      servicesPointer: this.state.servicesOpen ? 'auto' : 'none',
+      toggleLang: () => { window.location.href = 'faq-pt.dc.html'; },
+      langLabel: 'PT',
+      toBooking: () => { window.location.href = 'contact.dc.html'; },
+      faqItems: [
+        {question:'My flight is delayed. Does that cost me a fare?', answer:'No. We track your flight, and your driver adjusts pickup time to the actual landing, not the scheduled one.'},
+        {question:'Can you provide a child seat?', answer:'Yes, on request when you book. Let us know the child\'s age so we bring the right size [CONFIRM: any extra charge].'},
+        {question:'What is the luggage limit?', answer:'The Tesla Model Y comfortably takes 2–3 large suitcases; the Mercedes V-Class takes considerably more. Tell us your bag count when booking and we match the vehicle.'},
+        {question:'Can I travel with a pet?', answer:'Small pets in a carrier are welcome on most routes — let us know in advance [CONFIRM: any restrictions or surcharge].'},
+        {question:'How do I pay?', answer:'Card online at booking, or bank transfer for corporate accounts [CONFIRM: on-the-day cash/card options].'},
+        {question:'What is your cancellation policy?', answer:'Free cancellation up to 24 hours before pickup; changes closer to the time are handled case by case [CONFIRM exact policy].'},
+        {question:'What languages do your drivers speak?', answer:'English, Portuguese and Spanish. Other languages on request [CONFIRM availability].'},
+        {question:'Is the vehicle accessible for reduced mobility?', answer:'The Mercedes V-Class has a low step-in height and wide doors; let us know your specific needs so we can confirm the right vehicle.'},
+        {question:'How many passengers fit in each vehicle?', answer:'Tesla Model Y: up to 4. Mercedes V-Class: up to 7. Classic cars vary by model — see the Classic Cars page.'},
+        {question:'Do you run transfers at night?', answer:'Yes, with a €20 supplement between 22:00 and 07:00.'},
+        {question:'Are tolls included in the price?', answer:'Yes, tolls are included in the quoted price for transfers and tours [CONFIRM].'},
+        {question:'How much waiting time is included?', answer:'Airport pickups include a waiting allowance for arrivals; beyond that, extra waiting is €15 per hour.'},
+        {question:'Can I customize a tour itinerary?', answer:'Yes — every tour adapts to you. Tell your driver on the day, or let us know your priorities when booking.'},
+        {question:'What is the difference between a driver and a guide?', answer:'Our drivers are knowledgeable about the places you visit, but licensed tour guiding is a separate, regulated profession in Portugal. We can arrange a licensed guide on request.'}
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

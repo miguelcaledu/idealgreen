@@ -1,0 +1,55 @@
+:root{
+/* Primary — deep pine/forest green (from logo) */
+--green-50:#EEF5EF;--green-100:#D6E8D9;--green-200:#AED2B5;--green-300:#82B78F;--green-400:#5B9A69;
+--green-500:#3D7F4E;--green-600:#2C6339;--green-700:#1E4A34;--green-800:#163823;--green-900:#0F2A1A;
+/* Neutrals — stone (warm greige, primary neutral) */
+--stone-50:#FAF8F4;--stone-100:#F2EEE6;--stone-200:#E6DFD1;--stone-300:#D3C9B5;--stone-400:#B7AA8F;
+--stone-500:#9C8D71;--stone-600:#7D7059;--stone-700:#5F5645;--stone-800:#423C31;--stone-900:#2A251D;
+/* Neutrals — sand (warmer beige, backgrounds/accents) */
+--sand-50:#FBF6EC;--sand-100:#F6EAD3;--sand-200:#EEDBB2;--sand-300:#E2C689;--sand-400:#D2AC5C;
+--sand-500:#BE8E39;--sand-600:#9C7029;--sand-700:#785523;--sand-800:#543C1D;--sand-900:#332615;
+/* Neutrals — charcoal (text / dark UI) */
+--charcoal-50:#F2F2F1;--charcoal-100:#DEDEDC;--charcoal-200:#B8B7B2;--charcoal-300:#928F87;--charcoal-400:#6C6860;
+--charcoal-500:#4C4941;--charcoal-600:#3A3832;--charcoal-700:#292723;--charcoal-800:#1C1A17;--charcoal-900:#100F0D;
+/* Accent — Atlantic blue */
+--blue-50:#EAF4F6;--blue-100:#CDE6EB;--blue-200:#9FCCD6;--blue-300:#6EAEBC;--blue-400:#47919F;
+--blue-500:#2E7482;--blue-600:#235D68;--blue-700:#1B4A53;--blue-800:#15383F;--blue-900:#0E262A;
+/* Semantic — success reuses green */
+--success-50:var(--green-50);--success-100:var(--green-100);--success-500:var(--green-600);--success-600:var(--green-700);--success-700:var(--green-800);
+/* Semantic — warning (warm amber) */
+--warning-50:#FDF6E8;--warning-100:#FAEAC2;--warning-200:#F5D68B;--warning-300:#EEC15A;--warning-400:#E3A930;
+--warning-500:#C98A1E;--warning-600:#A26C17;--warning-700:#7A5012;--warning-800:#52350C;--warning-900:#2E1D07;
+/* Semantic — error (terracotta, not fire-engine red) */
+--error-50:#FBEDEA;--error-100:#F5D2C9;--error-200:#E9AC9B;--error-300:#DC8570;--error-400:#CC5E45;
+--error-500:#B33F26;--error-600:#90311D;--error-700:#6D2516;--error-800:#48180F;--error-900:#260C07;
+
+/* Semantic aliases — light theme (default) */
+--bg-page:var(--stone-50);
+--bg-surface:#FFFFFF;
+--bg-surface-sunken:var(--stone-100);
+--bg-surface-inverse:var(--charcoal-800);
+--bg-brand:var(--green-700);
+--bg-brand-strong:var(--green-800);
+--text-primary:var(--charcoal-800);
+--text-secondary:var(--charcoal-500);
+--text-muted:var(--stone-500);
+--text-on-brand:var(--stone-50);
+--text-on-dark:var(--stone-100);
+--text-link:var(--blue-600);
+--text-link-hover:var(--blue-700);
+--border-subtle:var(--stone-200);
+--border-default:var(--stone-300);
+--border-strong:var(--charcoal-300);
+--icon-default:var(--charcoal-500);
+--icon-brand:var(--green-700);
+--focus-ring:var(--blue-400);
+
+/* Sub-brand — Classic Cars (cream / burgundy / brass) */
+--cc-cream:#F3E9D8;
+--cc-cream-deep:#E9D9BC;
+--cc-burgundy:#6B1F2A;
+--cc-burgundy-dark:#4A141C;
+--cc-brass:#B08D57;
+--cc-brass-light:#D4B483;
+--cc-text:#2E1A14;
+}
