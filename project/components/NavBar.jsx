@@ -164,17 +164,6 @@ export default function NavBar({ dark = false, activePage = null, bookingDisable
             For Business
           </Link>
           <Link
-            href="/faq"
-            className="ig-nav-link"
-            style={{
-              font: activePage === 'faq' ? '600 15px var(--font-body)' : '500 15px var(--font-body)',
-              color: activePage === 'faq' ? 'var(--green-300)' : 'var(--stone-100)',
-              textDecoration: 'none',
-            }}
-          >
-            FAQ
-          </Link>
-          <Link
             href="/about"
             className="ig-nav-link"
             style={{
@@ -184,6 +173,17 @@ export default function NavBar({ dark = false, activePage = null, bookingDisable
             }}
           >
             About
+          </Link>
+          <Link
+            href="/faq"
+            className="ig-nav-link"
+            style={{
+              font: activePage === 'faq' ? '600 15px var(--font-body)' : '500 15px var(--font-body)',
+              color: activePage === 'faq' ? 'var(--green-300)' : 'var(--stone-100)',
+              textDecoration: 'none',
+            }}
+          >
+            FAQ
           </Link>
           <Link
             href="/pt"
