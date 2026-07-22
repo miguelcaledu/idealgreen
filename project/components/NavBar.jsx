@@ -12,7 +12,7 @@ const SERVICES = [
   { href: '/classic-cars', label: 'Classic Cars & Events' },
 ];
 
-export default function NavBar({ dark = false, activePage = null, bookingDisabled = false }) {
+export default function NavBar({ dark = false, activePage = null, bookingDisabled = false, bookLabel = 'Book now' }) {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -193,12 +193,12 @@ export default function NavBar({ dark = false, activePage = null, bookingDisable
         </nav>
         {bookingDisabled ? (
           <Button variant="ghost" size="md" disabled style={{ color: '#fff' }}>
-            Book now
+            {bookLabel}
           </Button>
         ) : (
           <Link href="/contact" style={{ textDecoration: 'none' }}>
             <Button variant="primary" size="md">
-              Book now
+              {bookLabel}
             </Button>
           </Link>
         )}

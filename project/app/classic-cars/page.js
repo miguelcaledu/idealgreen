@@ -1,0 +1,74 @@
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
+import FloatingContactPulse from '@/components/home/FloatingContactPulse';
+import CarsGrid from '@/components/classic-cars/CarsGrid';
+import { asset } from '@/lib/basePath';
+
+export const metadata = {
+  title: 'Classic Cars & Events | Vintage Mercedes for Weddings | Idealgreen',
+  description:
+    'Vintage Mercedes-Benz cars for weddings, private events, tours and productions in Portugal. Driver included, decoration on request.',
+};
+
+const USES = [
+  { title: 'Weddings', body: 'Church to venue, decorated to your colours.' },
+  { title: 'Private events', body: 'Anniversaries, birthdays, arrivals that are part of the occasion.' },
+  { title: 'Tours', body: 'A slower way to see Lisbon or Sintra, in the car itself.' },
+  { title: 'Productions', body: 'Photo and film shoots, with the car as part of the set.' },
+];
+
+export default function ClassicCarsPage() {
+  return (
+    <div style={{ fontFamily: 'var(--font-body)', background: 'var(--bg-page)', color: 'var(--text-primary)', overflowX: 'hidden' }}>
+      <NavBar dark activePage="classic-cars" bookLabel="Enquire" />
+
+      <section style={{ position: 'relative', height: 420, display: 'flex', alignItems: 'flex-end' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={asset('/assets/classic-mercedes-ponton-wedding-front.jpg')}
+          alt="Vintage black Mercedes-Benz decorated for a wedding outside a church"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', filter: 'saturate(1.06) contrast(1.05)' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg,rgba(46,26,20,0.85) 0%,rgba(14,21,18,0.35) 65%)' }} />
+        <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '0 32px 48px', width: '100%', boxSizing: 'border-box' }}>
+          <div style={{ font: 'var(--text-caption)', letterSpacing: 'var(--tracking-caption)', textTransform: 'uppercase', color: 'var(--green-300)', marginBottom: 10 }}>
+            Idealgreen Classic Cars
+          </div>
+          <h1 className="ig-page-heading" style={{ fontFamily: 'var(--font-display)', fontWeight: 600, lineHeight: 1.1, color: '#fff', margin: '0 0 14px', maxWidth: 620 }}>
+            Arrive the way the day deserves to begin
+          </h1>
+          <p style={{ font: 'var(--text-body-lg)', color: 'var(--stone-100)', maxWidth: 520, margin: 0 }}>
+            Weddings, private events, tours and film productions — vintage Mercedes-Benz cars, each with a driver.
+          </p>
+        </div>
+      </section>
+
+      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '64px 32px 32px' }}>
+        <h2 style={{ font: 'var(--text-h2)', color: 'var(--text-primary)', margin: '0 0 28px' }}>What we do with them</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: 24 }}>
+          {USES.map((u) => (
+            <div key={u.title}>
+              <h3 style={{ font: 'var(--text-h4)', margin: '0 0 6px', color: 'var(--green-700)' }}>{u.title}</h3>
+              <p style={{ font: 'var(--text-body-sm)', color: 'var(--text-secondary)', margin: 0 }}>{u.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <CarsGrid />
+
+      <section style={{ background: '#fff', padding: '64px 32px' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <h2 style={{ font: 'var(--text-h2)', color: 'var(--text-primary)', margin: '0 0 16px' }}>Sustainability here means something different</h2>
+          <p style={{ font: 'var(--text-body)', color: 'var(--text-secondary)', maxWidth: 640, margin: 0 }}>
+            These cars are not electric, and we do not present them as if they were. Their case is preservation — keeping a well-built car running
+            for decades, rather than building a new one. Repairable, maintained, and driven rarely enough to last many more.
+          </p>
+        </div>
+      </section>
+
+      <Footer />
+      <FloatingContactPulse />
+    </div>
+  );
+}
