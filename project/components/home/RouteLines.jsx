@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useScrollReveal } from './useScrollReveal';
 
 const ROUTES = [
   { city: 'Porto', time: '3h', price: 370 },
@@ -13,64 +13,27 @@ const ROUTES = [
 ];
 
 export default function RouteLines() {
-  const [progress, setProgress] = useState(false);
-  const started = useRef(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !started.current) {
-            started.current = true;
-            setProgress(true);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+  const { ref, revealed } = useScrollReveal(0.3);
 
   return (
-    <section ref={ref} style={{ background: 'var(--green-900)', padding: '88px 32px' }}>
-      <div style={{ maxWidth: 900, margin: '0 auto' }}>
-        <h2 style={{ font: 'var(--text-h2)', color: '#fff', margin: '0 0 40px', textAlign: 'center' }}>Where we drive from Lisbon</h2>
+    <section ref={ref} style={{ borderTop: '1px solid rgba(255,255,255,0.1)', borderBottom: '1px solid rgba(255,255,255,0.1)', padding: '104px 40px' }}>
+      <div style={{ maxWidth: 960, margin: '0 auto' }}>
+        <div style={{ font: 'var(--text-caption)', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--green-400)', textAlign: 'center', marginBottom: 18 }}>Routes</div>
+        <h2 style={{ font: '500 3rem/1.14 var(--font-display)', color: '#fff', margin: '0 0 64px', textAlign: 'center', letterSpacing: '-0.01em' }}>Where we drive from Lisbon</h2>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {ROUTES.map((rl) => (
             <Link
               key={rl.city}
               href="/transfers"
               className="ig-route-row"
-              style={{
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 18,
-                padding: '16px 12px',
-                borderBottom: '1px solid rgba(255,255,255,0.12)',
-                position: 'relative',
-              }}
+              style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 24, padding: '22px 8px', borderBottom: '1px solid rgba(255,255,255,0.1)', color: 'inherit' }}
             >
-              <div style={{ width: 120, flexShrink: 0, position: 'relative', height: 2, background: 'rgba(255,255,255,0.15)' }}>
-                <div
-                  style={{
-                    position: 'absolute',
-                    left: 0,
-                    top: 0,
-                    height: 2,
-                    background: 'var(--green-400)',
-                    width: progress ? '100%' : '0%',
-                    transition: 'width 1200ms ease-out',
-                  }}
-                />
+              <div style={{ width: 140, flexShrink: 0, position: 'relative', height: 1, background: 'rgba(255,255,255,0.18)' }}>
+                <div style={{ position: 'absolute', left: 0, top: 0, height: 1, background: 'var(--green-300)', width: revealed ? '100%' : '0%', transition: 'width 1200ms ease-out' }} />
               </div>
-              <div style={{ font: '600 18px var(--font-body)', color: '#fff', flex: 1 }}>{rl.city}</div>
-              <div style={{ font: 'var(--text-body-sm)', color: 'var(--stone-300)' }}>{rl.time}</div>
-              <div style={{ font: '600 20px var(--font-display)', color: 'var(--green-300)' }}>€{rl.price}</div>
+              <div style={{ font: '500 20px var(--font-body)', color: '#fff', flex: 1 }}>{rl.city}</div>
+              <div style={{ font: 'var(--text-body-sm)', color: 'var(--stone-400)' }}>{rl.time}</div>
+              <div style={{ font: '500 22px var(--font-display)', color: 'var(--green-300)', minWidth: 70, textAlign: 'right' }}>€{rl.price}</div>
             </Link>
           ))}
         </div>

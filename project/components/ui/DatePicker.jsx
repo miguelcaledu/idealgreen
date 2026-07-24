@@ -21,7 +21,7 @@ const TIME_CHIPS = (() => {
   return times;
 })();
 
-export default function DatePicker({ label, lang = 'en' }) {
+export default function DatePicker({ label, lang = 'en', variant = 'default', openUp = false }) {
   const now = new Date();
   const [open, setOpen] = useState(false);
   const [viewYear, setViewYear] = useState(now.getFullYear());
@@ -87,14 +87,16 @@ export default function DatePicker({ label, lang = 'en' }) {
     }
   };
 
+  const isBar = variant === 'bar';
+
   return (
-    <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: 6, fontFamily: 'var(--font-body)' }}>
+    <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: isBar ? 8 : 6, fontFamily: 'var(--font-body)', width: '100%' }}>
       <span
         style={{
-          font: 'var(--text-caption)',
-          letterSpacing: 'var(--tracking-caption)',
+          font: isBar ? '600 11px var(--font-body)' : 'var(--text-caption)',
+          letterSpacing: isBar ? '0.09em' : 'var(--tracking-caption)',
           textTransform: 'uppercase',
-          color: 'var(--text-muted)',
+          color: isBar ? 'var(--stone-400)' : 'var(--text-muted)',
         }}
       >
         {label ?? (pt ? 'Data e hora' : 'Date & time')}
@@ -102,30 +104,46 @@ export default function DatePicker({ label, lang = 'en' }) {
       <button
         onClick={() => setOpen((o) => !o)}
         type="button"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 10,
-          border: `1.5px solid ${open ? 'var(--green-600)' : 'var(--border-default)'}`,
-          padding: '12px 14px',
-          background: '#fff',
-          font: 'var(--text-body)',
-          color: hasSel ? 'var(--text-primary)' : 'var(--text-muted)',
-          cursor: 'pointer',
-          textAlign: 'left',
-        }}
+        style={
+          isBar
+            ? {
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: 10,
+                border: 'none',
+                padding: 0,
+                background: 'transparent',
+                font: '400 16px var(--font-body)',
+                color: '#fff',
+                cursor: 'pointer',
+                textAlign: 'left',
+                width: '100%',
+              }
+            : {
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: 10,
+                border: `1.5px solid ${open ? 'var(--green-600)' : 'var(--border-default)'}`,
+                padding: '12px 14px',
+                background: '#fff',
+                font: 'var(--text-body)',
+                color: hasSel ? 'var(--text-primary)' : 'var(--text-muted)',
+                cursor: 'pointer',
+                textAlign: 'left',
+              }
+        }
       >
         <span>{display}</span>
-        <span style={{ fontSize: 15, color: 'var(--green-700)' }}>▦</span>
+        <span style={{ fontSize: 15, color: isBar ? 'var(--stone-400)' : 'var(--green-700)' }}>▦</span>
       </button>
 
       <div
         style={{
           position: 'absolute',
-          top: '100%',
+          ...(openUp ? { bottom: '100%', marginBottom: 10 } : { top: '100%', marginTop: 6 }),
           left: 0,
-          marginTop: 6,
           background: '#fff',
           border: '1px solid var(--border-subtle)',
           boxShadow: 'var(--shadow-lg)',
@@ -133,7 +151,7 @@ export default function DatePicker({ label, lang = 'en' }) {
           width: 308,
           maxWidth: '90vw',
           opacity: open ? 1 : 0,
-          transform: open ? 'translateY(0)' : 'translateY(-8px)',
+          transform: open ? 'translateY(0)' : `translateY(${openUp ? 8 : -8}px)`,
           pointerEvents: open ? 'auto' : 'none',
           transition: 'opacity 180ms ease,transform 180ms ease',
         }}

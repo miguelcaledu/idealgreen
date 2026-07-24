@@ -186,3 +186,141 @@ a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* Home redesign: dark hero + booking bar + service rows */
+.ig-bar-tab {
+  border: none;
+  cursor: pointer;
+  padding: 11px 26px;
+  border-radius: var(--radius-pill);
+  font: 600 14px var(--font-body);
+  letter-spacing: 0.01em;
+  background: transparent;
+  color: var(--stone-200);
+  transition: background 220ms, color 220ms;
+}
+
+.ig-bar-tab.active {
+  background: var(--green-600);
+  color: #fff;
+}
+
+.ig-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font: 400 16px var(--font-body);
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  color-scheme: dark;
+}
+
+.ig-field select option {
+  color: #111;
+}
+
+.ig-srow-media img {
+  transition: transform 600ms var(--ease-standard);
+}
+
+.ig-srow:hover .ig-srow-media img {
+  transform: scale(1.06);
+}
+
+.ig-srow-media .ig-view {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.ig-srow:hover .ig-srow-media .ig-view {
+  opacity: 1;
+}
+
+.ig-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green-700);
+  color: var(--text-on-brand);
+  text-decoration: none;
+  font: 600 15px var(--font-body);
+  padding: 15px 28px;
+  transition: background 220ms;
+}
+
+.ig-btn-primary:hover {
+  background: var(--green-800);
+  color: var(--text-on-brand);
+}
+
+.ig-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  font: 600 15px var(--font-body);
+  padding: 15px 28px;
+  transition: background 220ms;
+}
+
+.ig-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.ig-home-marquee-track {
+  animation: ig-marquee 32s linear infinite;
+}
+
+.ig-home-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-home-marquee-track {
+    animation: none;
+  }
+  .ig-srow:hover .ig-srow-media img {
+    transform: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .ig-hero-title {
+    font-size: 3rem !important;
+  }
+  .ig-two {
+    grid-template-columns: 1fr !important;
+  }
+  .ig-process-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .ig-srow {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .ig-srow-media {
+    height: 220px !important;
+    order: -1;
+  }
+  .ig-bar-panel {
+    flex-direction: column !important;
+  }
+  .ig-field {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+  }
+  .ig-btn {
+    padding: 20px 24px !important;
+  }
+  .ig-btn button {
+    width: 100% !important;
+  }
+}

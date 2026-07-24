@@ -35,29 +35,29 @@ export default function Testimonials() {
 
   return (
     <section
-      style={{ maxWidth: 900, margin: '0 auto', padding: '88px 32px' }}
+      style={{ maxWidth: 900, margin: '0 auto', padding: '104px 40px 96px' }}
       onMouseEnter={() => (paused.current = true)}
       onMouseLeave={() => (paused.current = false)}
     >
-      <div style={{ textAlign: 'center', color: 'var(--sand-500)', fontSize: 18, marginBottom: 20 }}>★★★★★</div>
-      <div style={{ background: '#fff', border: '1px solid var(--border-subtle)', padding: 40, textAlign: 'center', boxShadow: 'var(--shadow-sm)', minHeight: 170 }}>
-        <p style={{ font: 'italic 26px/1.5 var(--font-classic)', color: 'var(--text-primary)', margin: '0 0 20px' }}>&quot;{active.quote}&quot;</p>
-        <div style={{ font: '600 14px var(--font-body)', color: 'var(--text-primary)' }}>{active.name}</div>
-        <div style={{ font: 'var(--text-body-sm)', color: 'var(--text-muted)' }}>{active.location} · WhatsApp</div>
+      <div style={{ textAlign: 'center', color: 'var(--sand-400)', fontSize: 18, marginBottom: 28, letterSpacing: '0.3em' }}>★★★★★</div>
+      <p style={{ font: 'italic 400 2rem/1.5 var(--font-classic)', color: '#fff', margin: '0 0 32px', textAlign: 'center', minHeight: 120 }}>&quot;{active.quote}&quot;</p>
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ font: '600 14px var(--font-body)', color: '#fff' }}>{active.name}</div>
+        <div style={{ font: 'var(--text-body-sm)', color: 'var(--stone-400)' }}>{active.location} · WhatsApp</div>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginTop: 20 }}>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginTop: 28 }}>
         {TESTIMONIALS.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
             style={{
-              width: 8,
-              height: 8,
+              width: 7,
+              height: 7,
               borderRadius: '50%',
               border: 'none',
               padding: 0,
               cursor: 'pointer',
-              background: i === index ? 'var(--green-700)' : 'var(--stone-300)',
+              background: i === index ? 'var(--green-300)' : 'rgba(255,255,255,0.25)',
             }}
           />
         ))}
