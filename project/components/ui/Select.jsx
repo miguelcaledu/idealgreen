@@ -27,7 +27,7 @@ export default function Select({ label, options, value, onChange, placeholder = 
             font: 'var(--text-caption)',
             letterSpacing: 'var(--tracking-caption)',
             textTransform: 'uppercase',
-            color: 'var(--text-muted)',
+            color: 'var(--stone-400)',
           }}
         >
           {label}
@@ -40,12 +40,11 @@ export default function Select({ label, options, value, onChange, placeholder = 
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          border: `1.5px solid ${open ? 'var(--green-600)' : 'var(--border-default)'}`,
-          borderRadius: 'var(--radius-md)',
+          border: `1.5px solid ${open ? 'var(--green-400)' : 'rgba(255,255,255,0.16)'}`,
           padding: '12px 14px',
-          background: '#fff',
+          background: '#0c1310',
           font: 'var(--text-body)',
-          color: selected ? 'var(--text-primary)' : 'var(--text-muted)',
+          color: selected ? '#fff' : 'var(--stone-400)',
           cursor: 'pointer',
         }}
       >
@@ -53,7 +52,7 @@ export default function Select({ label, options, value, onChange, placeholder = 
         <span
           style={{
             fontSize: 10,
-            color: 'var(--text-muted)',
+            color: 'var(--stone-400)',
             transform: open ? 'rotate(180deg)' : 'none',
             transition: 'transform var(--duration-fast)',
           }}
@@ -69,10 +68,8 @@ export default function Select({ label, options, value, onChange, placeholder = 
             left: 0,
             right: 0,
             marginTop: 4,
-            background: '#fff',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-md)',
-            boxShadow: 'var(--shadow-md)',
+            background: '#0f1613',
+            border: '1px solid rgba(255,255,255,0.14)',
             zIndex: 10,
             overflow: 'hidden',
           }}
@@ -88,12 +85,12 @@ export default function Select({ label, options, value, onChange, placeholder = 
                 padding: '10px 14px',
                 font: 'var(--text-body)',
                 cursor: 'pointer',
-                background: o.value === value ? 'var(--green-50)' : 'transparent',
-                color: o.value === value ? 'var(--green-700)' : 'var(--text-primary)',
+                background: o.value === value ? 'rgba(255,255,255,0.06)' : 'transparent',
+                color: o.value === value ? 'var(--green-300)' : 'var(--stone-100)',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--stone-100)')}
+              onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}
               onMouseLeave={(e) =>
-                (e.currentTarget.style.background = o.value === value ? 'var(--green-50)' : 'transparent')
+                (e.currentTarget.style.background = o.value === value ? 'rgba(255,255,255,0.06)' : 'transparent')
               }
             >
               {o.label}

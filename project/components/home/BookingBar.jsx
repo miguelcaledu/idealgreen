@@ -18,23 +18,78 @@ const ROUTE_PRICES = {
 };
 
 const TOUR_PRICES = {
-  'Lisbon, half day': 125,
-  'Lisbon, full day': 165,
-  'Sintra, half day': 130,
-  'Sintra, full day': 180,
-  'Fátima, half day': 220,
-  'Fátima, full day': 300,
-  'Évora, full day': 300,
-  'Porto, full day': 500,
+  en: {
+    'Lisbon, half day': 125,
+    'Lisbon, full day': 165,
+    'Sintra, half day': 130,
+    'Sintra, full day': 180,
+    'Fátima, half day': 220,
+    'Fátima, full day': 300,
+    'Évora, full day': 300,
+    'Porto, full day': 500,
+  },
+  pt: {
+    'Lisboa, meio dia': 125,
+    'Lisboa, dia inteiro': 165,
+    'Sintra, meio dia': 130,
+    'Sintra, dia inteiro': 180,
+    'Fátima, meio dia': 220,
+    'Fátima, dia inteiro': 300,
+    'Évora, dia inteiro': 300,
+    'Porto, dia inteiro': 500,
+  },
 };
 
-const TABS = [
-  { key: 'transfer', label: 'Transfer' },
-  { key: 'hour', label: 'By the hour' },
-  { key: 'tour', label: 'Private tour' },
-];
+const COPY = {
+  en: {
+    kicker: 'Private mobility · Portugal · since 2022',
+    title: 'Portugal, travelled differently.',
+    tabs: [
+      { key: 'transfer', label: 'Transfer' },
+      { key: 'hour', label: 'By the hour' },
+      { key: 'tour', label: 'Private tour' },
+    ],
+    pickup: 'Pickup location',
+    dropoff: 'Drop-off location',
+    addressPlaceholder: 'Address, airport, hotel…',
+    dateTime: 'Date & time',
+    tour: 'Tour',
+    chooseTour: 'Choose a tour',
+    duration: 'Duration',
+    hoursSuffix: 'hours',
+    viewOptions: 'View options',
+    requestQuote: 'Request quote',
+    vehicleLabel: 'Tesla Model Y · up to 4 pax',
+    totalPerVehicle: 'Total per vehicle',
+    contactHref: '/contact',
+  },
+  pt: {
+    kicker: 'Mobilidade privada · Portugal · desde 2022',
+    title: 'Portugal, viajado de outra forma.',
+    tabs: [
+      { key: 'transfer', label: 'Transfer' },
+      { key: 'hour', label: 'À hora' },
+      { key: 'tour', label: 'Tour privado' },
+    ],
+    pickup: 'Local de recolha',
+    dropoff: 'Destino',
+    addressPlaceholder: 'Morada, aeroporto, hotel…',
+    dateTime: 'Data e hora',
+    tour: 'Tour',
+    chooseTour: 'Escolha um tour',
+    duration: 'Duração',
+    hoursSuffix: 'horas',
+    viewOptions: 'Ver opções',
+    requestQuote: 'Pedir orçamento',
+    vehicleLabel: 'Tesla Model Y · até 4 pax',
+    totalPerVehicle: 'Total por veículo',
+    contactHref: '/contact-pt',
+  },
+};
 
-export default function BookingBar() {
+export default function BookingBar({ lang = 'en' }) {
+  const t = COPY[lang];
+  const tourPrices = TOUR_PRICES[lang];
   const router = useRouter();
   const [activeTab, setActiveTab] = useState('transfer');
   const [pickup, setPickup] = useState('');
@@ -50,28 +105,28 @@ export default function BookingBar() {
 
   const viewOptions = () => {
     if (activeTab === 'tour') {
-      setPrice({ value: TOUR_PRICES[tourChoice] || 165, vehicle: 'Total per vehicle' });
+      setPrice({ value: tourPrices[tourChoice] || 165, vehicle: t.totalPerVehicle });
     } else if (activeTab === 'transfer') {
       const key = `${pickup || 'Lisbon Airport'}-${dropoff || 'Sintra'}`;
-      setPrice({ value: ROUTE_PRICES[key] || 145, vehicle: 'Tesla Model Y · up to 4 pax' });
+      setPrice({ value: ROUTE_PRICES[key] || 145, vehicle: t.vehicleLabel });
     } else {
-      router.push('/contact');
+      router.push(t.contactHref);
     }
   };
 
   return (
     <div style={{ position: 'relative', maxWidth: 1320, margin: 'auto auto 0', padding: '0 40px', width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', top: -60 }}>
       <div style={{ font: 'var(--text-caption)', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--green-300)', marginBottom: 26, textAlign: 'center' }}>
-        Private mobility · Portugal · since 2022
+        {t.kicker}
       </div>
       <h1 className="ig-hero-title" style={{ font: "500 5.5rem/0.98 var(--font-display)", color: '#fff', margin: '0 0 40px', letterSpacing: '-0.015em', textAlign: 'center' }}>
-        Portugal, travelled differently.
+        {t.title}
       </h1>
 
       <div style={{ display: 'inline-flex', gap: 4, background: 'rgba(12,19,16,0.5)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 'var(--radius-pill)', padding: 5, marginBottom: 36 }}>
-        {TABS.map((t) => (
-          <button key={t.key} className={`ig-bar-tab${activeTab === t.key ? ' active' : ''}`} onClick={() => selectTab(t.key)}>
-            {t.label}
+        {t.tabs.map((tab) => (
+          <button key={tab.key} className={`ig-bar-tab${activeTab === tab.key ? ' active' : ''}`} onClick={() => selectTab(tab.key)}>
+            {tab.label}
           </button>
         ))}
       </div>
@@ -80,29 +135,29 @@ export default function BookingBar() {
         {activeTab === 'transfer' && (
           <div className="ig-bar-panel" style={{ display: 'flex', alignItems: 'stretch', flexWrap: 'wrap' }}>
             <div className="ig-field" style={{ flex: 1, minWidth: 170, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 8, padding: '20px 24px', borderRight: '1px solid rgba(255,255,255,0.14)' }}>
-              <span style={{ font: '600 11px var(--font-body)', letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--stone-400)' }}>Pickup location</span>
+              <span style={{ font: '600 11px var(--font-body)', letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--stone-400)' }}>{t.pickup}</span>
               <select value={pickup} onChange={(e) => setPickup(e.target.value)}>
-                <option value="">Address, airport, hotel…</option>
+                <option value="">{t.addressPlaceholder}</option>
                 {PLACES.map((p) => (
                   <option key={p}>{p}</option>
                 ))}
               </select>
             </div>
             <div className="ig-field" style={{ flex: 1, minWidth: 170, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 8, padding: '20px 24px', borderRight: '1px solid rgba(255,255,255,0.14)' }}>
-              <span style={{ font: '600 11px var(--font-body)', letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--stone-400)' }}>Drop-off location</span>
+              <span style={{ font: '600 11px var(--font-body)', letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--stone-400)' }}>{t.dropoff}</span>
               <select value={dropoff} onChange={(e) => setDropoff(e.target.value)}>
-                <option value="">Address, airport, hotel…</option>
+                <option value="">{t.addressPlaceholder}</option>
                 {PLACES.map((p) => (
                   <option key={p}>{p}</option>
                 ))}
               </select>
             </div>
             <div className="ig-field" style={{ flex: 0.9, minWidth: 180, display: 'flex', justifyContent: 'center', padding: '16px 24px', borderRight: '1px solid rgba(255,255,255,0.14)' }}>
-              <DatePicker label="Date & time" lang="en" variant="bar" openUp />
+              <DatePicker label={t.dateTime} lang={lang} variant="bar" openUp />
             </div>
             <div className="ig-btn" style={{ display: 'flex', alignItems: 'center', padding: '16px 22px' }}>
               <button className="ig-cta-btn" onClick={viewOptions} style={{ background: 'var(--green-600)', color: '#fff', border: 'none', padding: '16px 30px', font: '600 15px var(--font-body)', cursor: 'pointer', whiteSpace: 'nowrap' }}>
-                View options
+                {t.viewOptions}
               </button>
             </div>
           </div>
@@ -111,20 +166,20 @@ export default function BookingBar() {
         {activeTab === 'tour' && (
           <div className="ig-bar-panel" style={{ display: 'flex', alignItems: 'stretch', flexWrap: 'wrap' }}>
             <div className="ig-field" style={{ flex: 1.3, minWidth: 190, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 8, padding: '20px 24px', borderRight: '1px solid rgba(255,255,255,0.14)' }}>
-              <span style={{ font: '600 11px var(--font-body)', letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--stone-400)' }}>Tour</span>
+              <span style={{ font: '600 11px var(--font-body)', letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--stone-400)' }}>{t.tour}</span>
               <select value={tourChoice} onChange={(e) => setTourChoice(e.target.value)}>
-                <option value="">Choose a tour</option>
-                {Object.keys(TOUR_PRICES).map((t) => (
-                  <option key={t}>{t}</option>
+                <option value="">{t.chooseTour}</option>
+                {Object.keys(tourPrices).map((tp) => (
+                  <option key={tp}>{tp}</option>
                 ))}
               </select>
             </div>
             <div className="ig-field" style={{ flex: 0.9, minWidth: 180, display: 'flex', justifyContent: 'center', padding: '16px 24px', borderRight: '1px solid rgba(255,255,255,0.14)' }}>
-              <DatePicker label="Date & time" lang="en" variant="bar" openUp />
+              <DatePicker label={t.dateTime} lang={lang} variant="bar" openUp />
             </div>
             <div className="ig-btn" style={{ display: 'flex', alignItems: 'center', padding: '16px 22px' }}>
               <button className="ig-cta-btn" onClick={viewOptions} style={{ background: 'var(--green-600)', color: '#fff', border: 'none', padding: '16px 30px', font: '600 15px var(--font-body)', cursor: 'pointer', whiteSpace: 'nowrap' }}>
-                View options
+                {t.viewOptions}
               </button>
             </div>
           </div>
@@ -133,30 +188,30 @@ export default function BookingBar() {
         {activeTab === 'hour' && (
           <div className="ig-bar-panel" style={{ display: 'flex', alignItems: 'stretch', flexWrap: 'wrap' }}>
             <div className="ig-field" style={{ flex: 1, minWidth: 170, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 8, padding: '20px 24px', borderRight: '1px solid rgba(255,255,255,0.14)' }}>
-              <span style={{ font: '600 11px var(--font-body)', letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--stone-400)' }}>Pickup location</span>
+              <span style={{ font: '600 11px var(--font-body)', letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--stone-400)' }}>{t.pickup}</span>
               <select value={pickup} onChange={(e) => setPickup(e.target.value)}>
-                <option value="">Address, airport, hotel…</option>
+                <option value="">{t.addressPlaceholder}</option>
                 {PLACES.map((p) => (
                   <option key={p}>{p}</option>
                 ))}
               </select>
             </div>
             <div className="ig-field" style={{ flex: 0.9, minWidth: 180, display: 'flex', justifyContent: 'center', padding: '16px 24px', borderRight: '1px solid rgba(255,255,255,0.14)' }}>
-              <DatePicker label="Date & time" lang="en" variant="bar" openUp />
+              <DatePicker label={t.dateTime} lang={lang} variant="bar" openUp />
             </div>
             <div className="ig-field" style={{ flex: 0.6, minWidth: 130, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 8, padding: '20px 24px', borderRight: '1px solid rgba(255,255,255,0.14)' }}>
-              <span style={{ font: '600 11px var(--font-body)', letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--stone-400)' }}>Duration</span>
+              <span style={{ font: '600 11px var(--font-body)', letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--stone-400)' }}>{t.duration}</span>
               <select value={hours} onChange={(e) => setHours(Number(e.target.value))}>
                 {[4, 5, 6, 7, 8, 9, 10].map((h) => (
                   <option key={h} value={h}>
-                    {h} hours
+                    {h} {t.hoursSuffix}
                   </option>
                 ))}
               </select>
             </div>
             <div className="ig-btn" style={{ display: 'flex', alignItems: 'center', padding: '16px 22px' }}>
               <button className="ig-cta-btn" onClick={viewOptions} style={{ background: 'var(--green-600)', color: '#fff', border: 'none', padding: '16px 30px', font: '600 15px var(--font-body)', cursor: 'pointer', whiteSpace: 'nowrap' }}>
-                Request quote
+                {t.requestQuote}
               </button>
             </div>
           </div>

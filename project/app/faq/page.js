@@ -1,6 +1,6 @@
-import NavBar from '@/components/NavBar';
-import Footer from '@/components/Footer';
-import FloatingContactPulse from '@/components/home/FloatingContactPulse';
+import DarkNavBar from '@/components/DarkNavBar';
+import DarkFooter from '@/components/DarkFooter';
+import WhatsAppButton from '@/components/WhatsAppButton';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 
 export const metadata = {
@@ -28,14 +28,12 @@ const FAQ_ITEMS = [
 
 export default function FaqPage() {
   return (
-    <div style={{ fontFamily: 'var(--font-body)', background: 'var(--bg-page)', color: 'var(--text-primary)', overflowX: 'hidden' }}>
-      <NavBar dark activePage="faq" />
+    <div style={{ fontFamily: 'var(--font-body)', background: '#0c1310', color: 'var(--stone-100)', overflowX: 'hidden' }}>
+      <DarkNavBar altHref="/faq-pt" />
 
-      <section style={{ position: 'relative', minHeight: 200, paddingTop: 100, display: 'flex', alignItems: 'center', background: 'var(--green-900)' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '30px 32px 40px', width: '100%', boxSizing: 'border-box' }}>
-          <h1 className="ig-page-heading" style={{ fontFamily: 'var(--font-display)', fontWeight: 600, lineHeight: 1.1, color: '#fff', margin: '0 0 10px' }}>
-            Frequently asked questions
-          </h1>
+      <section style={{ position: 'relative', height: 320, display: 'flex', alignItems: 'center', background: 'var(--green-900)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '88px 32px 0', width: '100%', boxSizing: 'border-box' }}>
+          <h1 style={{ font: '600 3rem/1.1 var(--font-display)', color: '#fff', margin: '0 0 12px' }}>Frequently asked questions</h1>
           <p style={{ font: 'var(--text-body-lg)', color: 'var(--stone-200)', margin: 0 }}>
             If your question isn&apos;t here, message us on WhatsApp and we answer directly.
           </p>
@@ -46,8 +44,8 @@ export default function FaqPage() {
         <FAQAccordion items={FAQ_ITEMS} />
       </section>
 
-      <Footer />
-      <FloatingContactPulse />
+      <DarkFooter />
+      <WhatsAppButton />
     </div>
   );
 }

@@ -52,7 +52,7 @@ export default function DatePicker({ label, lang = 'en', variant = 'default', op
       disabled: isPast,
       cursor: isPast ? 'not-allowed' : 'pointer',
       bg: isSel ? 'var(--green-700)' : 'transparent',
-      color: isPast ? 'var(--stone-300)' : isSel ? '#fff' : isToday ? 'var(--green-700)' : 'var(--text-primary)',
+      color: isPast ? 'rgba(255,255,255,0.25)' : isSel ? '#fff' : isToday ? 'var(--green-300)' : 'var(--stone-100)',
       font: isSel || isToday ? '600 14px var(--font-body)' : '400 14px var(--font-body)',
       onClick: () => {
         setSelDay(d);
@@ -96,7 +96,7 @@ export default function DatePicker({ label, lang = 'en', variant = 'default', op
           font: isBar ? '600 11px var(--font-body)' : 'var(--text-caption)',
           letterSpacing: isBar ? '0.09em' : 'var(--tracking-caption)',
           textTransform: 'uppercase',
-          color: isBar ? 'var(--stone-400)' : 'var(--text-muted)',
+          color: 'var(--stone-400)',
         }}
       >
         {label ?? (pt ? 'Data e hora' : 'Date & time')}
@@ -125,18 +125,18 @@ export default function DatePicker({ label, lang = 'en', variant = 'default', op
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 gap: 10,
-                border: `1.5px solid ${open ? 'var(--green-600)' : 'var(--border-default)'}`,
+                border: `1.5px solid ${open ? 'var(--green-400)' : 'rgba(255,255,255,0.16)'}`,
                 padding: '12px 14px',
-                background: '#fff',
+                background: '#0c1310',
                 font: 'var(--text-body)',
-                color: hasSel ? 'var(--text-primary)' : 'var(--text-muted)',
+                color: hasSel ? '#fff' : 'var(--stone-400)',
                 cursor: 'pointer',
                 textAlign: 'left',
               }
         }
       >
         <span>{display}</span>
-        <span style={{ fontSize: 15, color: isBar ? 'var(--stone-400)' : 'var(--green-700)' }}>▦</span>
+        <span style={{ fontSize: 15, color: 'var(--stone-400)' }}>▦</span>
       </button>
 
       <div
@@ -144,9 +144,9 @@ export default function DatePicker({ label, lang = 'en', variant = 'default', op
           position: 'absolute',
           ...(openUp ? { bottom: '100%', marginBottom: 10 } : { top: '100%', marginTop: 6 }),
           left: 0,
-          background: '#fff',
-          border: '1px solid var(--border-subtle)',
-          boxShadow: 'var(--shadow-lg)',
+          background: '#0f1613',
+          border: '1px solid rgba(255,255,255,0.14)',
+          boxShadow: '0 12px 32px rgba(0,0,0,0.4)',
           zIndex: 70,
           width: 308,
           maxWidth: '90vw',
@@ -156,20 +156,20 @@ export default function DatePicker({ label, lang = 'en', variant = 'default', op
           transition: 'opacity 180ms ease,transform 180ms ease',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 16px', borderBottom: '1px solid var(--border-subtle)' }}>
-          <button onClick={prevMonth} type="button" style={{ background: 'none', border: 'none', fontSize: 18, color: 'var(--green-700)', cursor: 'pointer', padding: '2px 8px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 16px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+          <button onClick={prevMonth} type="button" style={{ background: 'none', border: 'none', fontSize: 18, color: 'var(--green-300)', cursor: 'pointer', padding: '2px 8px' }}>
             ‹
           </button>
-          <div style={{ font: '500 19px var(--font-display)', color: 'var(--text-primary)' }}>
+          <div style={{ font: '500 19px var(--font-display)', color: '#fff' }}>
             {months[viewMonth]} {viewYear}
           </div>
-          <button onClick={nextMonth} type="button" style={{ background: 'none', border: 'none', fontSize: 18, color: 'var(--green-700)', cursor: 'pointer', padding: '2px 8px' }}>
+          <button onClick={nextMonth} type="button" style={{ background: 'none', border: 'none', fontSize: 18, color: 'var(--green-300)', cursor: 'pointer', padding: '2px 8px' }}>
             ›
           </button>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7,1fr)', gap: 2, padding: '10px 12px 4px' }}>
           {weekdays.map((w, i) => (
-            <div key={i} style={{ textAlign: 'center', font: 'var(--text-caption)', color: 'var(--text-muted)', padding: '4px 0' }}>
+            <div key={i} style={{ textAlign: 'center', font: 'var(--text-caption)', color: 'var(--stone-400)', padding: '4px 0' }}>
               {w}
             </div>
           ))}
@@ -187,13 +187,13 @@ export default function DatePicker({ label, lang = 'en', variant = 'default', op
             </button>
           ))}
         </div>
-        <div style={{ borderTop: '1px solid var(--border-subtle)', padding: '12px 16px' }}>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', padding: '12px 16px' }}>
           <div
             style={{
               font: 'var(--text-caption)',
               letterSpacing: 'var(--tracking-caption)',
               textTransform: 'uppercase',
-              color: 'var(--text-muted)',
+              color: 'var(--stone-400)',
               marginBottom: 8,
             }}
           >
@@ -207,9 +207,9 @@ export default function DatePicker({ label, lang = 'en', variant = 'default', op
                 type="button"
                 style={{
                   padding: '8px 0',
-                  border: `1.5px solid ${selTime === t ? 'var(--green-700)' : 'var(--border-default)'}`,
-                  background: selTime === t ? 'var(--green-700)' : '#fff',
-                  color: selTime === t ? '#fff' : 'var(--text-primary)',
+                  border: `1.5px solid ${selTime === t ? 'var(--green-400)' : 'rgba(255,255,255,0.16)'}`,
+                  background: selTime === t ? 'var(--green-700)' : 'transparent',
+                  color: selTime === t ? '#fff' : 'var(--stone-100)',
                   font: '600 13px var(--font-body)',
                   cursor: 'pointer',
                 }}
@@ -219,7 +219,7 @@ export default function DatePicker({ label, lang = 'en', variant = 'default', op
             ))}
           </div>
         </div>
-        <div style={{ padding: '12px 16px', borderTop: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'flex-end' }}>
+        <div style={{ padding: '12px 16px', borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'flex-end' }}>
           <button
             onClick={() => setOpen(false)}
             type="button"

@@ -2,36 +2,32 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const TESTIMONIALS = [
-  {
-    quote: 'Jorge picked the coastal road back from Sintra without us asking, just because the light was better.',
-    name: 'Helen & Robert',
-    location: 'United Kingdom',
-  },
-  {
-    quote: 'Our flight landed two hours late and he was still there with the sign.',
-    name: 'Claudia M.',
-    location: 'Germany',
-  },
-  {
-    quote: 'Three generations, one van, no complaints — he even packed a picnic for the viewpoint at Cabo da Roca.',
-    name: 'The Alves Family',
-    location: 'Brazil',
-  },
-];
+const TESTIMONIALS = {
+  en: [
+    { quote: 'Jorge picked the coastal road back from Sintra without us asking, just because the light was better.', name: 'Helen & Robert', location: 'United Kingdom' },
+    { quote: 'Our flight landed two hours late and he was still there with the sign.', name: 'Claudia M.', location: 'Germany' },
+    { quote: 'Three generations, one van, no complaints — he even packed a picnic for the viewpoint at Cabo da Roca.', name: 'The Alves Family', location: 'Brazil' },
+  ],
+  pt: [
+    { quote: 'O Jorge escolheu a estrada da costa no regresso de Sintra sem lhe pedirmos, só porque a luz estava melhor.', name: 'Helen e Robert', location: 'Reino Unido' },
+    { quote: 'O nosso voo aterrou duas horas atrasado e ele continuava lá com a placa.', name: 'Claudia M.', location: 'Alemanha' },
+    { quote: 'Três gerações, uma carrinha, sem queixas — até levou um piquenique para o miradouro do Cabo da Roca.', name: 'Família Alves', location: 'Brasil' },
+  ],
+};
 
-export default function Testimonials() {
+export default function Testimonials({ lang = 'en' }) {
+  const testimonials = TESTIMONIALS[lang];
   const [index, setIndex] = useState(0);
   const paused = useRef(false);
 
   useEffect(() => {
     const id = setInterval(() => {
-      if (!paused.current) setIndex((i) => (i + 1) % TESTIMONIALS.length);
+      if (!paused.current) setIndex((i) => (i + 1) % testimonials.length);
     }, 6000);
     return () => clearInterval(id);
-  }, []);
+  }, [testimonials.length]);
 
-  const active = TESTIMONIALS[index];
+  const active = testimonials[index];
 
   return (
     <section
@@ -46,7 +42,7 @@ export default function Testimonials() {
         <div style={{ font: 'var(--text-body-sm)', color: 'var(--stone-400)' }}>{active.location} · WhatsApp</div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginTop: 28 }}>
-        {TESTIMONIALS.map((_, i) => (
+        {testimonials.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}

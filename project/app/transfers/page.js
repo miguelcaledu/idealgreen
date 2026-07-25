@@ -1,6 +1,6 @@
-import NavBar from '@/components/NavBar';
-import Footer from '@/components/Footer';
-import FloatingContactPulse from '@/components/home/FloatingContactPulse';
+import DarkNavBar from '@/components/DarkNavBar';
+import DarkFooter from '@/components/DarkFooter';
+import WhatsAppButton from '@/components/WhatsAppButton';
 import RouteCard from '@/components/ui/RouteCard';
 import RoutesExplorer from '@/components/transfers/RoutesExplorer';
 import { asset } from '@/lib/basePath';
@@ -9,6 +9,14 @@ export const metadata = {
   title: 'Private Airport Transfer Lisbon | Idealgreen',
   description: 'Private Lisbon airport transfer from €40, meet & greet, door-to-door. Point-to-point routes across Portugal, priced per vehicle.',
 };
+
+const FOOTER_ROUTES = [
+  { label: 'Lisbon–Porto · €370', href: '/transfers' },
+  { label: 'Lisbon–Faro · €315', href: '/transfers' },
+  { label: 'Lisbon–Sintra · €45', href: '/transfers' },
+  { label: 'Lisbon–Évora · €190', href: '/transfers' },
+  { label: 'Lisbon–Fátima · €165', href: '/transfers' },
+];
 
 const FREQUENT_ROUTES = [
   { to: 'Porto', price: '€370', duration: '3h' },
@@ -26,17 +34,22 @@ const FEATURES = [
 
 export default function TransfersPage() {
   return (
-    <div style={{ fontFamily: 'var(--font-body)', background: 'var(--bg-page)', color: 'var(--text-primary)', overflowX: 'hidden' }}>
-      <NavBar dark />
+    <div style={{ fontFamily: 'var(--font-body)', background: '#0c1310', color: 'var(--stone-100)', overflowX: 'hidden' }}>
+      <DarkNavBar altHref="/transfers-pt" />
 
-      <section style={{ position: 'relative', display: 'flex', alignItems: 'flex-end', background: 'var(--green-900)', paddingTop: 120 }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px 48px', width: '100%', boxSizing: 'border-box' }}>
-          <div style={{ font: 'var(--text-caption)', letterSpacing: 'var(--tracking-caption)', textTransform: 'uppercase', color: 'var(--green-300)', marginBottom: 12 }}>
-            Airport & Private Transfers
+      <section style={{ position: 'relative', height: '78vh', minHeight: 560, display: 'flex', alignItems: 'flex-end' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={asset('/assets/tesla-airport-night.jpg')}
+          alt="Tesla Model Y waiting at Lisbon airport at night"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(1.1) contrast(1.08) brightness(0.85)' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg,rgba(14,21,18,0.92) 0%,rgba(14,21,18,0.3) 55%,rgba(14,21,18,0.5) 100%)' }} />
+        <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '0 32px 72px', width: '100%', boxSizing: 'border-box' }}>
+          <div style={{ font: 'var(--text-caption)', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--green-300)', marginBottom: 16 }}>
+            Airport &amp; Private Transfers
           </div>
-          <h1 className="ig-hero-heading" style={{ fontFamily: 'var(--font-display)', fontWeight: 600, lineHeight: 1.05, color: '#fff', margin: '0 0 14px', maxWidth: 640 }}>
-            Smooth landings, every time.
-          </h1>
+          <h1 style={{ font: '600 4rem/1.02 var(--font-display)', color: '#fff', margin: '0 0 18px', maxWidth: 720 }}>Landings, handled with care.</h1>
           <p style={{ font: 'var(--text-body-lg)', color: 'var(--stone-100)', maxWidth: 520, margin: 0 }}>
             Your driver waits at arrivals with your name — even if the flight is late.
           </p>
@@ -45,20 +58,20 @@ export default function TransfersPage() {
 
       <section style={{ maxWidth: 1200, margin: '0 auto', padding: '64px 32px 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: 24 }}>
-          <div style={{ border: '1px solid var(--border-subtle)', padding: 24, background: '#fff' }}>
-            <div style={{ font: '600 32px var(--font-display)', color: 'var(--green-700)' }}>€40</div>
-            <div style={{ font: 'var(--text-body-sm)', color: 'var(--text-secondary)', marginTop: 6 }}>Lisbon airport to central Lisbon, per vehicle</div>
+          <div style={{ border: '1px solid rgba(255,255,255,0.1)', padding: 24, background: '#0f1613' }}>
+            <div style={{ font: '600 32px var(--font-display)', color: 'var(--green-300)' }}>€40</div>
+            <div style={{ font: 'var(--text-body-sm)', color: 'var(--stone-300)', marginTop: 6 }}>Lisbon airport to central Lisbon, per vehicle</div>
           </div>
-          <div style={{ border: '1px solid var(--border-subtle)', padding: 24, background: '#fff' }}>
-            <div style={{ font: '600 32px var(--font-display)', color: 'var(--green-700)' }}>+€20</div>
-            <div style={{ font: 'var(--text-body-sm)', color: 'var(--text-secondary)', marginTop: 6 }}>Night supplement, 22:00–07:00</div>
+          <div style={{ border: '1px solid rgba(255,255,255,0.1)', padding: 24, background: '#0f1613' }}>
+            <div style={{ font: '600 32px var(--font-display)', color: 'var(--green-300)' }}>+€20</div>
+            <div style={{ font: 'var(--text-body-sm)', color: 'var(--stone-300)', marginTop: 6 }}>Night supplement, 22:00–07:00</div>
           </div>
-          <div style={{ border: '1px solid var(--border-subtle)', padding: 24, background: '#fff' }}>
-            <div style={{ font: '600 32px var(--font-display)', color: 'var(--green-700)' }}>€15</div>
-            <div style={{ font: 'var(--text-body-sm)', color: 'var(--text-secondary)', marginTop: 6 }}>Per extra hour of waiting time</div>
+          <div style={{ border: '1px solid rgba(255,255,255,0.1)', padding: 24, background: '#0f1613' }}>
+            <div style={{ font: '600 32px var(--font-display)', color: 'var(--green-300)' }}>€15</div>
+            <div style={{ font: 'var(--text-body-sm)', color: 'var(--stone-300)', marginTop: 6 }}>Per extra hour of waiting time</div>
           </div>
         </div>
-        <p style={{ font: 'var(--text-body-sm)', color: 'var(--text-muted)', marginTop: 16 }}>
+        <p style={{ font: 'var(--text-body-sm)', color: 'var(--stone-400)', marginTop: 16 }}>
           Prices shown are per vehicle, not per person. Tolls are included in every transfer [CONFIRM]. Child seats are available on request [CONFIRM].
         </p>
       </section>
@@ -71,11 +84,11 @@ export default function TransfersPage() {
           style={{ width: '100%', height: 320, objectFit: 'cover', display: 'block', filter: 'saturate(1.08) contrast(1.05)' }}
         />
         <div>
-          <h2 style={{ font: 'var(--text-h3)', margin: '0 0 14px' }}>Meet & greet, not a shared shuttle</h2>
+          <h2 style={{ font: 'var(--text-h3)', color: '#fff', margin: '0 0 14px' }}>Meet &amp; greet, not a shared shuttle</h2>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
             {FEATURES.map((f) => (
-              <li key={f} style={{ font: 'var(--text-body)', color: 'var(--text-secondary)', paddingLeft: 20, position: 'relative' }}>
-                <span style={{ position: 'absolute', left: 0, color: 'var(--green-700)' }}>✓</span>
+              <li key={f} style={{ font: 'var(--text-body)', color: 'var(--stone-300)', paddingLeft: 20, position: 'relative' }}>
+                <span style={{ position: 'absolute', left: 0, color: 'var(--green-300)' }}>✓</span>
                 {f}
               </li>
             ))}
@@ -83,7 +96,7 @@ export default function TransfersPage() {
         </div>
       </section>
 
-      <section style={{ background: 'var(--green-900)', padding: '64px 32px' }}>
+      <section style={{ background: '#0f1613', padding: '64px 32px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <h2 style={{ font: 'var(--text-h2)', color: '#fff', margin: '0 0 32px' }}>The right vehicle for the trip</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 24 }}>
@@ -108,8 +121,8 @@ export default function TransfersPage() {
       </section>
 
       <section style={{ maxWidth: 1200, margin: '0 auto', padding: '64px 32px 32px' }}>
-        <h2 style={{ font: 'var(--text-h2)', margin: '0 0 8px' }}>Frequent routes</h2>
-        <p style={{ font: 'var(--text-body-lg)', color: 'var(--text-secondary)', margin: '0 0 28px' }}>Booked most often, from Lisbon.</p>
+        <h2 style={{ font: 'var(--text-h2)', color: '#fff', margin: '0 0 8px' }}>Frequent routes</h2>
+        <p style={{ font: 'var(--text-body-lg)', color: 'var(--stone-300)', margin: '0 0 28px' }}>Booked most often, from Lisbon.</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {FREQUENT_ROUTES.map((r) => (
             <RouteCard key={r.to} from="Lisbon" to={r.to} price={r.price} duration={r.duration} href="/contact" />
@@ -121,8 +134,8 @@ export default function TransfersPage() {
         <RoutesExplorer />
       </section>
 
-      <Footer />
-      <FloatingContactPulse />
+      <DarkFooter routes={FOOTER_ROUTES} />
+      <WhatsAppButton />
     </div>
   );
 }

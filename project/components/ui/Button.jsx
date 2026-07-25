@@ -10,14 +10,14 @@ const sizes = {
 
 const variants = {
   primary: { background: 'var(--green-700)', color: 'var(--text-on-brand)' },
-  secondary: { background: 'transparent', color: 'var(--green-700)', borderColor: 'var(--green-700)' },
-  ghost: { background: 'transparent', color: 'var(--charcoal-700)', borderColor: 'transparent' },
+  secondary: { background: 'transparent', color: 'var(--green-300)', borderColor: 'var(--green-400)' },
+  ghost: { background: 'transparent', color: 'var(--stone-300)', borderColor: 'transparent' },
 };
 
 const hoverBg = {
   primary: 'var(--green-800)',
-  secondary: 'var(--green-50)',
-  ghost: 'var(--stone-100)',
+  secondary: 'rgba(255,255,255,0.06)',
+  ghost: 'rgba(255,255,255,0.06)',
 };
 
 export default function Button({

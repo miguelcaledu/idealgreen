@@ -1,4 +1,6 @@
-import HomeNavBar from '@/components/home/HomeNavBar';
+import DarkNavBar from '@/components/DarkNavBar';
+import DarkFooter from '@/components/DarkFooter';
+import WhatsAppButton from '@/components/WhatsAppButton';
 import BookingBar from '@/components/home/BookingBar';
 import ServiceRows from '@/components/home/ServiceRows';
 import ProcessSteps from '@/components/home/ProcessSteps';
@@ -9,27 +11,10 @@ import { asset } from '@/lib/basePath';
 
 const HOTELS = ['Hotel da Baixa', 'Wine & Books Lisboa Hotel', 'Blue Liberdade Hotel', 'Onyria Quinta da Marinha Golf', 'The Yeatman'];
 
-const FOOTER_ROUTES = [
-  { label: 'Lisbon–Porto · €370', href: '/transfers' },
-  { label: 'Lisbon–Faro · €315', href: '/transfers' },
-  { label: 'Lisbon–Sintra · €45', href: '/transfers' },
-  { label: 'Lisbon–Évora · €190', href: '/transfers' },
-  { label: 'Lisbon–Seville', href: '/transfers' },
-];
-
-const FOOTER_COMPANY = [
-  { label: 'Private Tours', href: '/tours' },
-  { label: 'Tailor-Made Journeys', href: '/tailor-made' },
-  { label: 'Corporate Mobility', href: '/corporate' },
-  { label: 'Classic Cars & Events', href: '/classic-cars' },
-  { label: 'About Us', href: '/about' },
-  { label: 'FAQ', href: '/faq' },
-];
-
 export default function HomePage() {
   return (
     <div style={{ fontFamily: 'var(--font-body)', background: '#0c1310', color: 'var(--stone-100)', overflowX: 'hidden' }}>
-      <HomeNavBar />
+      <DarkNavBar />
 
       <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '150px 0 60px', boxSizing: 'border-box' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -145,62 +130,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer style={{ background: '#0a0f0c', color: 'var(--stone-100)', padding: '80px 40px 32px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-        <div className="ig-footer-grid" style={{ maxWidth: 1320, margin: '0 auto' }}>
-          <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={asset('/assets/logo-wordmark-white.png')} alt="Idealgreen" style={{ height: 24, marginBottom: 18, display: 'block' }} />
-            <p style={{ font: '400 0.95rem/1.6 var(--font-body)', color: 'var(--stone-400)', maxWidth: 280, margin: '0 0 20px' }}>Private journeys through Portugal, designed around you.</p>
-            <div style={{ display: 'flex', gap: 18 }}>
-              <a href="https://instagram.com/idealgreen_tours" style={{ font: 'var(--text-body-sm)', color: 'var(--stone-200)', textDecoration: 'none' }}>
-                Instagram
-              </a>
-              <a href="#" style={{ font: 'var(--text-body-sm)', color: 'var(--stone-200)', textDecoration: 'none' }}>
-                LinkedIn
-              </a>
-            </div>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
-            <span style={{ font: 'var(--text-caption)', textTransform: 'uppercase', color: 'var(--green-400)', marginBottom: 4 }}>Popular routes</span>
-            {FOOTER_ROUTES.map((r, i) => (
-              <a key={i} href={r.href} style={{ font: 'var(--text-body-sm)', color: 'var(--stone-300)', textDecoration: 'none' }}>
-                {r.label}
-              </a>
-            ))}
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
-            <span style={{ font: 'var(--text-caption)', textTransform: 'uppercase', color: 'var(--green-400)', marginBottom: 4 }}>Company</span>
-            {FOOTER_COMPANY.map((c) => (
-              <a key={c.href} href={c.href} style={{ font: 'var(--text-body-sm)', color: 'var(--stone-300)', textDecoration: 'none' }}>
-                {c.label}
-              </a>
-            ))}
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
-            <span style={{ font: 'var(--text-caption)', textTransform: 'uppercase', color: 'var(--green-400)', marginBottom: 4 }}>Contact</span>
-            <span style={{ font: 'var(--text-body-sm)', color: 'var(--stone-300)' }}>+351 912 926 688</span>
-            <span style={{ font: 'var(--text-body-sm)', color: 'var(--stone-300)' }}>info@idealgreen.pt</span>
-            <span style={{ font: 'var(--text-body-sm)', color: 'var(--stone-300)' }}>
-              Rua Cesário Verde 35, Loja BB
-              <br />
-              2790-491 Queijas, Portugal
-            </span>
-          </div>
-        </div>
-        <div style={{ maxWidth: 1320, margin: '48px auto 0', paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8, font: 'var(--text-caption)', color: '#8a938c' }}>
-          <span>© 2026 Idealgreen · Private tours &amp; transfers since 2022</span>
-          <span>Queijas, Oeiras · Lisbon, Portugal</span>
-        </div>
-      </footer>
-
-      <a
-        href="https://wa.me/351912926688"
-        target="_blank"
-        rel="noopener"
-        style={{ position: 'fixed', bottom: 24, right: 24, width: 56, height: 56, borderRadius: '50%', background: 'var(--green-700)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', fontSize: 24, boxShadow: '0 8px 24px rgba(0,0,0,0.3)', zIndex: 50 }}
-      >
-        ●
-      </a>
+      <DarkFooter />
+      <WhatsAppButton />
     </div>
   );
 }

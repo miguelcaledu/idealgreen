@@ -1,10 +1,9 @@
 import Link from 'next/link';
-import NavBar from '@/components/NavBar';
-import Footer from '@/components/Footer';
-import FloatingContactPulse from '@/components/home/FloatingContactPulse';
+import DarkNavBar from '@/components/DarkNavBar';
+import DarkFooter from '@/components/DarkFooter';
+import WhatsAppButton from '@/components/WhatsAppButton';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import TrustBar from '@/components/ui/TrustBar';
 import { asset } from '@/lib/basePath';
 
 export const metadata = {
@@ -27,16 +26,26 @@ const PARTNER_STOPS = [
   { image: '/assets/fleet-tesla-iberostar.jpg', alt: 'Tesla Model Y at The Yeatman, Porto', name: 'The Yeatman, Porto/Gaia', body: 'The same standing arrangement, extended to Porto engagements.' },
 ];
 
+const HOTELS = ['Hotel da Baixa', 'Wine & Books Lisboa Hotel', 'Blue Liberdade Hotel', 'Onyria Quinta da Marinha Golf', 'The Yeatman', 'Memmo Príncipe Real'];
+
 export default function CorporatePage() {
   return (
-    <div style={{ fontFamily: 'var(--font-body)', background: 'var(--green-900)', color: 'var(--stone-100)', overflowX: 'hidden' }}>
-      <NavBar dark activePage="corporate" />
+    <div style={{ fontFamily: 'var(--font-body)', background: '#0c1310', color: 'var(--stone-100)', overflowX: 'hidden' }}>
+      <DarkNavBar altHref="/corporate-pt" />
 
-      <section style={{ position: 'relative', display: 'flex', alignItems: 'flex-end', background: 'var(--green-900)', paddingTop: 120 }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px 48px', width: '100%', boxSizing: 'border-box' }}>
-          <h1 className="ig-page-heading" style={{ fontFamily: 'var(--font-display)', fontWeight: 600, lineHeight: 1.1, color: '#fff', margin: '0 0 14px', maxWidth: 600 }}>
+      <section style={{ position: 'relative', height: '78vh', minHeight: 560, display: 'flex', alignItems: 'flex-end' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={asset('/assets/fleet-teslas-jkeuropa.jpg')}
+          alt="Fleet of Tesla vehicles for corporate accounts"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(1.05) contrast(1.08) brightness(0.8)' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg,rgba(14,21,18,0.94) 0%,rgba(14,21,18,0.35) 55%,rgba(14,21,18,0.5) 100%)' }} />
+        <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '0 32px 72px', width: '100%', boxSizing: 'border-box' }}>
+          <div style={{ font: 'var(--text-caption)', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--stone-400)', marginBottom: 16 }}>
             Corporate Mobility
-          </h1>
+          </div>
+          <h1 style={{ font: '600 4rem/1.02 var(--font-display)', color: '#fff', margin: '0 0 18px', maxWidth: 640 }}>Arrive ready.</h1>
           <p style={{ font: 'var(--text-body-lg)', color: 'var(--stone-200)', maxWidth: 520, margin: 0 }}>
             Ground transport that shows up on time and stays out of the way — for teams, events and recurring accounts.
           </p>
@@ -55,23 +64,20 @@ export default function CorporatePage() {
         </div>
       </section>
 
-      <section style={{ background: '#fff', padding: '72px 32px' }}>
+      <section style={{ background: '#0f1613', padding: '72px 32px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <h2 style={{ font: 'var(--text-h2)', color: 'var(--text-primary)', margin: '0 0 32px' }}>Where our cars already park</h2>
+          <h2 style={{ font: 'var(--text-h2)', color: 'var(--stone-100)', margin: '0 0 32px' }}>Where our cars already park</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 24 }}>
             {PARTNER_STOPS.map((s) => (
-              <div key={s.name} style={{ background: 'var(--bg-surface-sunken)', border: '1px solid var(--border-subtle)', overflow: 'hidden' }}>
+              <div key={s.name} style={{ background: '#0f1613', border: '1px solid rgba(255,255,255,0.1)', overflow: 'hidden' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={asset(s.image)} alt={s.alt} style={{ width: '100%', height: 200, objectFit: 'cover', display: 'block', filter: 'saturate(1.06) contrast(1.04)' }} />
                 <div style={{ padding: 18 }}>
-                  <h3 style={{ font: 'var(--text-h4)', margin: '0 0 4px' }}>{s.name}</h3>
-                  <p style={{ font: 'var(--text-body-sm)', color: 'var(--text-secondary)', margin: 0 }}>{s.body}</p>
+                  <h3 style={{ font: 'var(--text-h4)', color: '#fff', margin: '0 0 4px' }}>{s.name}</h3>
+                  <p style={{ font: 'var(--text-body-sm)', color: 'var(--stone-300)', margin: 0 }}>{s.body}</p>
                 </div>
               </div>
             ))}
-          </div>
-          <div style={{ marginTop: 36 }}>
-            <TrustBar partners={['Hotel da Baixa', 'Wine & Books Lisboa', 'Blue Liberdade', 'Onyria Quinta da Marinha', 'The Yeatman']} />
           </div>
         </div>
       </section>
@@ -81,7 +87,7 @@ export default function CorporatePage() {
         <p style={{ font: 'var(--text-body-lg)', color: 'var(--stone-300)', margin: '0 0 32px' }}>
           Tell us your typical routes and volume — we set up an account and a standing rate.
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20, textAlign: 'left', background: '#fff', padding: 32, border: '1px solid rgba(255,255,255,0.08)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20, textAlign: 'left', background: '#0f1613', padding: 32, border: '1px solid rgba(255,255,255,0.08)' }}>
           <div className="ig-booking-grid">
             <Input label="Company name" placeholder="Your company" />
             <Input label="Contact email" placeholder="you@company.com" type="email" />
@@ -95,8 +101,21 @@ export default function CorporatePage() {
         </div>
       </section>
 
-      <Footer />
-      <FloatingContactPulse />
+      <section style={{ borderTop: '1px solid rgba(255,255,255,0.1)', borderBottom: '1px solid rgba(255,255,255,0.1)', padding: '56px 0', overflow: 'hidden' }}>
+        <div style={{ textAlign: 'center', font: '600 11px var(--font-body)', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--stone-400)', marginBottom: 28 }}>
+          Trusted by those who host
+        </div>
+        <div className="ig-home-marquee-track" style={{ display: 'flex', gap: 72, alignItems: 'center', width: 'max-content' }}>
+          {[...HOTELS, ...HOTELS].map((name, i) => (
+            <span key={i} aria-hidden={i >= HOTELS.length ? 'true' : undefined} style={{ font: '500 18px var(--font-body)', color: '#8a938c', whiteSpace: 'nowrap', letterSpacing: '0.02em' }}>
+              {name}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <DarkFooter />
+      <WhatsAppButton />
     </div>
   );
 }
