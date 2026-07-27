@@ -6,6 +6,7 @@ import DatePicker from '../ui/DatePicker';
 import Select from '../ui/Select';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
+import { saveSubmission } from '@/lib/supabaseClient';
 
 const COPY = {
   en: {
@@ -77,11 +78,14 @@ export default function ProposalWizard({ lang = 'en' }) {
   const [interests, setInterests] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
   const nextLabel = step === 3 ? t.requestProposal : t.continue;
 
-  const nextStep = () => {
+  const nextStep = async () => {
     if (step === 3) {
+      setSubmitting(true);
+      await saveSubmission('tailor_made', lang, { groupSize, mobilityNeeds, interests, fullName, email });
       router.push(t.contactHref);
     } else {
       setStep((s) => Math.min(3, s + 1));
@@ -144,7 +148,7 @@ export default function ProposalWizard({ lang = 'en' }) {
           <Button variant="ghost" size="md" onClick={prevStep} disabled={step === 0}>
             {t.back}
           </Button>
-          <Button variant="primary" size="md" onClick={nextStep}>
+          <Button variant="primary" size="md" onClick={nextStep} disabled={submitting}>
             {nextLabel}
           </Button>
         </div>

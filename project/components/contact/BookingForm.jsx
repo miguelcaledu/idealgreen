@@ -5,6 +5,7 @@ import Select from '../ui/Select';
 import Input from '../ui/Input';
 import DatePicker from '../ui/DatePicker';
 import Button from '../ui/Button';
+import { saveSubmission } from '@/lib/supabaseClient';
 
 const COPY = {
   en: {
@@ -79,7 +80,7 @@ const COPY = {
   },
 };
 
-export default function BookingForm({ lang = 'en' }) {
+export default function BookingForm({ lang = 'en', onSuccess }) {
   const t = COPY[lang];
   const [activeTab, setActiveTab] = useState('all');
   const [serviceType, setServiceType] = useState('');
@@ -93,6 +94,30 @@ export default function BookingForm({ lang = 'en' }) {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [notes, setNotes] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    await saveSubmission('contact_booking', lang, {
+      serviceType,
+      route,
+      adults,
+      children: kids,
+      luggage,
+      childSeats,
+      flightNumber,
+      fullName,
+      email,
+      phone,
+      notes,
+    });
+    setSubmitting(false);
+    if (onSuccess) {
+      onSuccess();
+    } else {
+      window.location.href = 'https://wa.me/351912926688';
+    }
+  };
 
   return (
     <div>
@@ -138,13 +163,7 @@ export default function BookingForm({ lang = 'en' }) {
         </div>
         <Input label={t.phone} placeholder={t.phonePlaceholder} value={phone} onChange={(e) => setPhone(e.target.value)} />
         <Input label={t.notes} placeholder={t.notesPlaceholder} value={notes} onChange={(e) => setNotes(e.target.value)} />
-        <Button
-          variant="primary"
-          size="lg"
-          onClick={() => {
-            window.location.href = 'https://wa.me/351912926688';
-          }}
-        >
+        <Button variant="primary" size="lg" onClick={handleSubmit} disabled={submitting}>
           {t.submit}
         </Button>
       </div>

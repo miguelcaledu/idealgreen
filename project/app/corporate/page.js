@@ -1,9 +1,7 @@
-import Link from 'next/link';
 import DarkNavBar from '@/components/DarkNavBar';
 import DarkFooter from '@/components/DarkFooter';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
+import CorporateForm from '@/components/corporate/CorporateForm';
 import { asset } from '@/lib/basePath';
 
 export const metadata = {
@@ -87,18 +85,7 @@ export default function CorporatePage() {
         <p style={{ font: 'var(--text-body-lg)', color: 'var(--stone-300)', margin: '0 0 32px' }}>
           Tell us your typical routes and volume — we set up an account and a standing rate.
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20, textAlign: 'left', background: '#0f1613', padding: 32, border: '1px solid rgba(255,255,255,0.08)' }}>
-          <div className="ig-booking-grid">
-            <Input label="Company name" placeholder="Your company" />
-            <Input label="Contact email" placeholder="you@company.com" type="email" />
-          </div>
-          <Input label="Typical monthly volume" placeholder="e.g. 10 airport transfers, 4 city trips" />
-          <Link href="/contact" style={{ alignSelf: 'flex-start', textDecoration: 'none' }}>
-            <Button variant="primary" size="lg">
-              Request a corporate account
-            </Button>
-          </Link>
-        </div>
+        <CorporateForm />
       </section>
 
       <section style={{ borderTop: '1px solid rgba(255,255,255,0.1)', borderBottom: '1px solid rgba(255,255,255,0.1)', padding: '56px 0', overflow: 'hidden' }}>

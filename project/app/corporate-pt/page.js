@@ -1,9 +1,7 @@
-import Link from 'next/link';
 import DarkNavBar from '@/components/DarkNavBar';
 import DarkFooter from '@/components/DarkFooter';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
+import CorporateForm from '@/components/corporate/CorporateForm';
 import { asset } from '@/lib/basePath';
 
 export const metadata = {
@@ -87,18 +85,7 @@ export default function CorporatePtPage() {
         <p style={{ font: 'var(--text-body-lg)', color: 'var(--stone-300)', margin: '0 0 32px' }}>
           Diga-nos as suas rotas e volume habituais — criamos uma conta e uma tarifa fixa.
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20, textAlign: 'left', background: '#0f1613', padding: 32, border: '1px solid rgba(255,255,255,0.08)' }}>
-          <div className="ig-booking-grid">
-            <Input label="Nome da empresa" placeholder="A sua empresa" />
-            <Input label="Email de contacto" placeholder="voce@empresa.com" type="email" />
-          </div>
-          <Input label="Volume mensal típico" placeholder="ex.: 10 transfers de aeroporto, 4 viagens na cidade" />
-          <Link href="/contact-pt" style={{ alignSelf: 'flex-start', textDecoration: 'none' }}>
-            <Button variant="primary" size="lg">
-              Peça uma conta empresarial
-            </Button>
-          </Link>
-        </div>
+        <CorporateForm lang="pt" />
       </section>
 
       <section style={{ borderTop: '1px solid rgba(255,255,255,0.1)', borderBottom: '1px solid rgba(255,255,255,0.1)', padding: '56px 0', overflow: 'hidden' }}>

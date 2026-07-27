@@ -44,12 +44,14 @@ export default function RouteLines({ lang = 'en' }) {
               className="ig-route-row"
               style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 24, padding: '22px 8px', borderBottom: '1px solid rgba(255,255,255,0.1)', color: 'inherit' }}
             >
-              <div style={{ width: 140, flexShrink: 0, position: 'relative', height: 1, background: 'rgba(255,255,255,0.18)' }}>
+              <div className="ig-route-line" style={{ width: 140, flexShrink: 0, position: 'relative', height: 1, background: 'rgba(255,255,255,0.18)' }}>
                 <div style={{ position: 'absolute', left: 0, top: 0, height: 1, background: 'var(--green-300)', width: revealed ? '100%' : '0%', transition: 'width 1200ms ease-out' }} />
               </div>
-              <div style={{ font: '500 20px var(--font-body)', color: '#fff', flex: 1 }}>{rl.city}</div>
-              <div style={{ font: 'var(--text-body-sm)', color: 'var(--stone-400)' }}>{rl.time}</div>
-              <div style={{ font: '500 22px var(--font-display)', color: 'var(--green-300)', minWidth: 70, textAlign: 'right' }}>€{rl.price}</div>
+              <div className="ig-route-city" style={{ font: '500 20px var(--font-body)', color: '#fff', flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {rl.city}
+              </div>
+              <div className="ig-route-time" style={{ font: 'var(--text-body-sm)', color: 'var(--stone-400)', flexShrink: 0 }}>{rl.time}</div>
+              <div style={{ font: '500 22px var(--font-display)', color: 'var(--green-300)', minWidth: 70, flexShrink: 0, textAlign: 'right' }}>€{rl.price}</div>
             </Link>
           ))}
         </div>

@@ -108,7 +108,7 @@ export default function DarkNavBar({ lang = 'en', altHref = '/pt' }) {
             {altLabel}
           </Link>
         </nav>
-        <Link href={bookHref} className="ig-btn-primary">
+        <Link href={bookHref} className="ig-btn-primary ig-nav-book-btn">
           {bookLabel}
         </Link>
       </div>
