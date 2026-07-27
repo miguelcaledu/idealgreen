@@ -33,7 +33,7 @@ jobs:
 
       - run: npm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: /Idealgreen
+          NEXT_PUBLIC_BASE_PATH: /idealgreen
 
       - uses: actions/configure-pages@v5
 
