@@ -4,9 +4,12 @@ export default function WhatsAppButton() {
       href="https://wa.me/351912926688"
       target="_blank"
       rel="noopener"
-      style={{ position: 'fixed', bottom: 24, right: 24, width: 56, height: 56, borderRadius: '50%', background: 'var(--green-700)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', fontSize: 24, boxShadow: '0 8px 24px rgba(0,0,0,0.3)', zIndex: 50 }}
+      aria-label="Chat on WhatsApp"
+      style={{ position: 'fixed', bottom: 24, right: 24, width: 56, height: 56, borderRadius: '50%', background: 'var(--green-700)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', boxShadow: '0 8px 24px rgba(0,0,0,0.3)', zIndex: 50 }}
     >
-      ●
+      <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor" aria-hidden="true">
+        <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.34.665 4.523 1.818 6.377L4 29l7.803-1.78A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.75a9.71 9.71 0 0 1-4.95-1.354l-.355-.21-4.63 1.056 1.086-4.512-.232-.37A9.7 9.7 0 0 1 5.25 15c0-5.93 4.824-10.75 10.754-10.75S26.75 9.07 26.75 15 21.933 24.75 16.004 24.75Zm5.55-7.36c-.304-.152-1.796-.886-2.075-.987-.279-.101-.482-.152-.685.152-.203.305-.786.987-.964 1.19-.177.203-.355.228-.658.076-.304-.152-1.283-.473-2.444-1.51-.904-.807-1.514-1.804-1.692-2.108-.177-.305-.019-.47.133-.622.137-.136.304-.355.456-.533.152-.177.203-.304.304-.507.101-.203.05-.38-.025-.533-.076-.152-.685-1.653-.939-2.264-.247-.594-.499-.514-.685-.523l-.583-.01c-.203 0-.533.076-.812.38-.279.305-1.066 1.04-1.066 2.542s1.091 2.951 1.243 3.155c.152.203 2.148 3.28 5.203 4.6.727.313 1.294.5 1.737.64.73.232 1.394.199 1.919.121.585-.088 1.796-.734 2.049-1.442.253-.71.253-1.318.177-1.443-.076-.126-.279-.203-.583-.355Z" />
+      </svg>
     </a>
   );
 }
