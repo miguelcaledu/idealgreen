@@ -22,7 +22,7 @@ export default function HomePagePt() {
     <div style={{ fontFamily: 'var(--font-body)', background: '#0c1310', color: 'var(--stone-100)', overflowX: 'hidden' }}>
       <DarkNavBar lang="pt" altHref="/" />
 
-      <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '110px 0 60px', boxSizing: 'border-box' }}>
+      <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '90px 0 100px', boxSizing: 'border-box' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={asset('/assets/fleet-tesla-hotel-street.jpg')}
