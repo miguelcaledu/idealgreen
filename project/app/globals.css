@@ -315,7 +315,10 @@ a:hover {
 
 @media (max-width: 860px) {
   .ig-hero-title {
-    font-size: 2.5rem !important;
+    font-size: 2.15rem !important;
+  }
+  .ig-hero-kicker {
+    font-size: 10px !important;
   }
   .ig-two {
     grid-template-columns: 1fr !important;
@@ -361,5 +364,8 @@ a:hover {
   }
   .ig-route-time {
     display: none;
+  }
+  .ig-hero-section {
+    padding: 150px 0 60px !important;
   }
 }

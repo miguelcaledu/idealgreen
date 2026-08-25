@@ -135,7 +135,7 @@ export default function BookingBar({ lang = 'en' }) {
 
   return (
     <div style={{ position: 'relative', maxWidth: 1320, margin: 'auto auto 0', padding: '0 40px', width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', top: -60 }}>
-      <div style={{ font: 'var(--text-caption)', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--green-300)', marginBottom: 26, textAlign: 'center' }}>
+      <div className="ig-hero-kicker" style={{ font: 'var(--text-caption)', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--green-300)', marginBottom: 26, textAlign: 'center' }}>
         {t.kicker}
       </div>
       <h1 className="ig-hero-title" style={{ font: "500 5.5rem/0.98 var(--font-display)", color: '#fff', margin: '0 0 40px', letterSpacing: '-0.015em', textAlign: 'center' }}>
