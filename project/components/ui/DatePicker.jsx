@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const MONTHS = {
   en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -23,7 +23,16 @@ const TIME_CHIPS = (() => {
 
 export default function DatePicker({ label, lang = 'en', variant = 'default', openUp = false }) {
   const now = new Date();
+  const ref = useRef(null);
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onDoc = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener('click', onDoc);
+    return () => document.removeEventListener('click', onDoc);
+  }, []);
   const [viewYear, setViewYear] = useState(now.getFullYear());
   const [viewMonth, setViewMonth] = useState(now.getMonth());
   const [selDay, setSelDay] = useState(null);
@@ -90,10 +99,10 @@ export default function DatePicker({ label, lang = 'en', variant = 'default', op
   const isBar = variant === 'bar';
 
   return (
-    <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: isBar ? 8 : 6, fontFamily: 'var(--font-body)', width: '100%' }}>
+    <div ref={ref} style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: isBar ? 8 : 6, fontFamily: 'var(--font-body)', width: '100%' }}>
       <span
         style={{
-          font: isBar ? '600 11px var(--font-body)' : 'var(--text-caption)',
+          font: isBar ? '600 12px var(--font-body)' : 'var(--text-caption)',
           letterSpacing: isBar ? '0.09em' : 'var(--tracking-caption)',
           textTransform: 'uppercase',
           color: 'var(--stone-400)',

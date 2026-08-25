@@ -7,6 +7,7 @@ import ProcessSteps from '@/components/home/ProcessSteps';
 import RouteLines from '@/components/home/RouteLines';
 import CorporateCallout from '@/components/home/CorporateCallout';
 import Testimonials from '@/components/home/Testimonials';
+import CountUp from '@/components/home/CountUp';
 import { asset } from '@/lib/basePath';
 
 const HOTELS = ['Hotel da Baixa', 'Wine & Books Lisboa Hotel', 'Blue Liberdade Hotel', 'Onyria Quinta da Marinha Golf', 'The Yeatman'];
@@ -59,11 +60,15 @@ export default function HomePage() {
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 36, borderTop: '1px solid rgba(255,255,255,0.14)', paddingTop: 32 }}>
               <div>
-                <div style={{ font: '500 44px var(--font-display)', color: 'var(--green-300)' }}>100%</div>
+                <div style={{ font: '500 44px var(--font-display)', color: 'var(--green-300)' }}>
+                  <CountUp to={100} suffix="%" />
+                </div>
                 <div style={{ font: 'var(--text-body-sm)', color: 'var(--stone-400)', marginTop: 6 }}>electric transfer &amp; tour fleet</div>
               </div>
               <div>
-                <div style={{ font: '500 44px var(--font-display)', color: 'var(--green-300)' }}>8</div>
+                <div style={{ font: '500 44px var(--font-display)', color: 'var(--green-300)' }}>
+                  <CountUp to={8} />
+                </div>
                 <div style={{ font: 'var(--text-body-sm)', color: 'var(--stone-400)', marginTop: 6 }}>restored classics kept on the road</div>
               </div>
             </div>
